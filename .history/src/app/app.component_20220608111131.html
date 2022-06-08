@@ -1,0 +1,1606 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #898787;
+    color: white;
+    font-weight: 600;
+  }
+
+  .toolbar img {
+    margin: 0 16px;
+  }
+
+  .toolbar #twitter-logo {
+    height: 40px;
+    margin: 0 8px;
+  }
+
+  .toolbar #youtube-logo {
+    height: 40px;
+    margin: 0 16px;
+  }
+
+  .toolbar #twitter-logo:hover,
+  .toolbar #youtube-logo:hover {
+    opacity: 0.8;
+  }
+
+  .content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  svg.material-icons {
+    height: 24px;
+    width: auto;
+  }
+
+  svg.material-icons:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  .card svg.material-icons path {
+    fill: #888;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .card {
+    all: unset;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    height: 40px;
+    width: 200px;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+  }
+
+  .card-container .card:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .card.card-small {
+    height: 16px;
+    width: 168px;
+  }
+
+  .card-container .card:not(.highlight-card) {
+    cursor: pointer;
+  }
+
+  .card-container .card:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  }
+
+  .card-container .card:not(.highlight-card):hover .material-icons path {
+    fill: rgb(105, 103, 103);
+  }
+
+  .card.highlight-card {
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+    border: none;
+    width: auto;
+    min-width: 30%;
+    position: relative;
+  }
+
+  .card.card.highlight-card span {
+    margin-left: 60px;
+  }
+
+  svg#rocket {
+    width: 80px;
+    position: absolute;
+    left: -10px;
+    top: -24px;
+  }
+
+  svg#rocket-smoke {
+    height: calc(100vh - 95px);
+    position: absolute;
+    top: 10px;
+    right: 180px;
+    z-index: -10;
+  }
+
+  a,
+  a:visited,
+  a:hover {
+    color: #1976d2;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #125699;
+  }
+
+  .terminal {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 6px;
+    padding-top: 45px;
+    margin-top: 8px;
+    overflow: hidden;
+    background-color: rgb(15, 15, 16);
+  }
+
+  .terminal::before {
+    content: "\2022 \2022 \2022";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: rgb(58, 58, 58);
+    color: #c2c3c4;
+    width: 100%;
+    font-size: 2rem;
+    line-height: 0;
+    padding: 14px 0;
+    text-indent: 4px;
+  }
+
+  .terminal pre {
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    color: white;
+    padding: 0 1rem 1rem;
+    margin: 0;
+  }
+
+  .circle-link {
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    margin: 8px;
+    background-color: white;
+    border: 1px solid #eeeeee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: 1s ease-out;
+  }
+
+  .circle-link:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  footer {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+  }
+
+  footer a {
+    display: flex;
+    align-items: center;
+  }
+
+  .github-star-badge {
+    color: #24292e;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    padding: 3px 10px;
+    border: 1px solid rgba(27, 31, 35, .2);
+    border-radius: 3px;
+    background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
+    margin-left: 4px;
+    font-weight: 600;
+  }
+
+  .github-star-badge:hover {
+    background-image: linear-gradient(-180deg, #f0f3f6, #e6ebf1 90%);
+    border-color: rgba(27, 31, 35, .35);
+    background-position: -.5em;
+  }
+
+  .github-star-badge .material-icons {
+    height: 16px;
+    width: 16px;
+    margin-right: 4px;
+  }
+
+  svg#clouds {
+    position: fixed;
+    bottom: -160px;
+    left: -230px;
+    z-index: -10;
+    width: 1920px;
+  }
+
+  /* Responsive Styles */
+  @media screen and (max-width: 767px) {
+
+    .card-container>*:not(.circle-link),
+    .terminal {
+      width: 100%;
+    }
+
+    .card:not(.highlight-card) {
+      height: 16px;
+      margin: 8px 0;
+    }
+
+    .card.highlight-card span {
+      margin-left: 72px;
+    }
+
+    svg#rocket-smoke {
+      right: 120px;
+      transform: rotate(-5deg);
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    svg#rocket-smoke {
+      display: none;
+      visibility: hidden;
+    }
+  }
+</style>
+
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  <img width="40" alt="Liga 1"
+    src="https://1.bp.blogspot.com/-PT-9zTZA9Nk/YYZOFME_QfI/AAAAAAAADnU/2bfV0awl9bkFbOJnDOZ9Y6F_fHmuS4IiACNcBGAsYHQ/s2048/BRI%2BLiga%2B1%2BIndonesia.png" />
+  <span>KLASEMEN LIGA 1</span>
+  <div class="spacer"></div>
+  <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
+    <svg id="twitter-logo" height="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+      <rect width="400" height="400" fill="none" />
+      <path
+        d="M153.62,301.59c94.34,0,145.94-78.16,145.94-145.94,0-2.22,0-4.43-.15-6.63A104.36,104.36,0,0,0,325,122.47a102.38,102.38,0,0,1-29.46,8.07,51.47,51.47,0,0,0,22.55-28.37,102.79,102.79,0,0,1-32.57,12.45,51.34,51.34,0,0,0-87.41,46.78A145.62,145.62,0,0,1,92.4,107.81a51.33,51.33,0,0,0,15.88,68.47A50.91,50.91,0,0,1,85,169.86c0,.21,0,.43,0,.65a51.31,51.31,0,0,0,41.15,50.28,51.21,51.21,0,0,1-23.16.88,51.35,51.35,0,0,0,47.92,35.62,102.92,102.92,0,0,1-63.7,22A104.41,104.41,0,0,1,75,278.55a145.21,145.21,0,0,0,78.62,23"
+        fill="#fff" />
+    </svg>
+  </a>
+  <a aria-label="Angular on YouTube" target="_blank" rel="noopener" href="https://youtube.com/angular" title="YouTube">
+    <svg id="youtube-logo" height="24" width="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24" fill="#fff">
+      <path d="M0 0h24v24H0V0z" fill="none" />
+      <path
+        d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z" />
+    </svg>
+  </a>
+</div>
+
+<div class="content" role="main">
+
+  <!-- Highlight Card -->
+  <div class="widget-match-standings__table-container"> <div class="widget-match-standings__header"> <span class="widget-match-standings__header-text" data-stage="Musim Reguler" data-series=""> Klasemen live</span> </div> <table class="widget-match-standings__table widget-match-standings__table--no-team-selection"> <thead> <tr> <th title="Posisi"> Pos </th> <th class="widget-match-standings__rank-change-col"></th> <th title="Nama klub" class="widget-match-standings__team"> Tim </th> <th title="Pertandingan dimainkan" class="widget-match-standings__matches-played"> M </th> <th title="Pertandingan dimenangkan" class="widget-match-standings__matches-won"> M </th> <th title="Pertandingan imbang" class="widget-match-standings__matches-drawn"> S </th> <th title="Pertandingan kalah" class="widget-match-standings__matches-lost"> K </th> <th title="Gol memasukkan" class="widget-match-standings__goals-for"> GM </th> <th title="Gol kemasukan" class="widget-match-standings__goals-against"> GK </th> <th title="Selisih gol" class="widget-match-standings__goals-diff"> +/- </th> <th title="Poin" class="widget-match-standings__pts"> P </th> <th class="widget-match-standings__last-five"> Performa </th> </tr> </thead> <tbody><!---->
+    <!---->
+
+  <tr class="widget-match-standings__row
+             widget-match-standings__row--
+             widget-match-standings__row--rank-status
+             widget-match-standings__row--rank-status-1" data-team-name="Manchester City FC" data-team-id="a3nyxabgsqlnqfkeg41m6tnpp" data-rank-change="">
+        <td> 1 </td>
+        <td class="widget-match-standings__rank-change-col">
+            <span class="widget-match-standings__rank-change
+                         widget-match-standings__rank-change--">
+            </span>
+        </td>
+        <td class=" widget-match-standings__team">
+            <a href="/id/tim/manchester-city-fc/a3nyxabgsqlnqfkeg41m6tnpp">
+                <img width="30" height="30" class="widget-match-standings__crest" src="https://secure.cache.images.core.optasports.com/soccer/teams/30x30/uuid_a3nyxabgsqlnqfkeg41m6tnpp.png" alt="Manchester City FC" data-team-name="Manchester City FC">
+            </a>
+            <a class="widget-match-standings__link" href="/id/tim/manchester-city-fc/a3nyxabgsqlnqfkeg41m6tnpp">
+                <abbr class="widget-match-standings__team--short-name" title="Manchester City FC" data-team-name="Manchester City FC"><!---->MCI
+                </abbr>
+                <span class="widget-match-standings__team--full-name" data-team-name="Manchester City FC">
+                    Manchester City FC
+                </span>
+            </a>
+
+        </td>
+        <td class="widget-match-standings__matches-played"> 38 </td>
+        <td class="widget-match-standings__matches-won"> 29 </td>
+        <td class="widget-match-standings__matches-drawn"> 6<!----></td>
+        <td class="widget-match-standings__matches-lost"> 3<!----></td>
+        <td class="widget-match-standings__goals-for"> 99<!----></td>
+        <td class="widget-match-standings__goals-against"> 26<!----></td>
+        <td class="widget-match-standings__goals-diff"> +73<!----></td>
+        <td class="widget-match-standings__pts"> 93<!----></td>
+        <td class="widget-match-standings__last-five">
+          <!---->
+                <a href="/id/pertandingan/manchester-city-fc-v-aston-villa-fc/ew3gjwasqfowc0cyimi3akzdg" title="Menang" data-team-home="Manchester City FC" data-team-away="Aston Villa FC" data-index="1" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/west-ham-united-fc-v-manchester-city-fc/ev43wljl3ipbfh804sg1iun10" title="Imbang" data-team-home="West Ham United FC" data-team-away="Manchester City FC" data-index="2" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--draw">
+                    I
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/wolverhampton-wanderers-v-manchester-city-fc/equkppy5e29uu3o1q7ll0sges" title="Menang" data-team-home="Wolverhampton Wanderers" data-team-away="Manchester City FC" data-index="3" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/manchester-city-fc-v-newcastle-united-fc/eu1g45kc1lotthw7xjtz648ic" title="Menang" data-team-home="Manchester City FC" data-team-away="Newcastle United FC" data-index="4" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/leeds-united-afc-v-manchester-city-fc/es8m6eqlxwcx6c8z025a5r9jo" title="Menang" data-team-home="Leeds United AFC" data-team-away="Manchester City FC" data-index="5" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!---->
+        </td>
+</tr>
+
+    <!----><!---->
+
+  <tr class="widget-match-standings__row
+             widget-match-standings__row--
+             widget-match-standings__row--rank-status
+             widget-match-standings__row--rank-status-1" data-team-name="Liverpool FC" data-team-id="c8h9bw1l82s06h77xxrelzhur" data-rank-change="">
+        <td> 2 </td>
+        <td class="widget-match-standings__rank-change-col">
+            <span class="widget-match-standings__rank-change
+                         widget-match-standings__rank-change--">
+            </span>
+        </td>
+        <td class=" widget-match-standings__team">
+            <a href="/id/tim/liverpool-fc/c8h9bw1l82s06h77xxrelzhur">
+                <img width="30" height="30" class="widget-match-standings__crest" src="https://secure.cache.images.core.optasports.com/soccer/teams/30x30/uuid_c8h9bw1l82s06h77xxrelzhur.png" alt="Liverpool FC" data-team-name="Liverpool FC">
+            </a>
+            <a class="widget-match-standings__link" href="/id/tim/liverpool-fc/c8h9bw1l82s06h77xxrelzhur">
+                <abbr class="widget-match-standings__team--short-name" title="Liverpool FC" data-team-name="Liverpool FC"><!---->LIV
+                </abbr>
+                <span class="widget-match-standings__team--full-name" data-team-name="Liverpool FC">
+                    Liverpool FC
+                </span>
+            </a>
+
+        </td>
+        <td class="widget-match-standings__matches-played"> 38 </td>
+        <td class="widget-match-standings__matches-won"> 28 </td>
+        <td class="widget-match-standings__matches-drawn"> 8<!----></td>
+        <td class="widget-match-standings__matches-lost"> 2<!----></td>
+        <td class="widget-match-standings__goals-for"> 94<!----></td>
+        <td class="widget-match-standings__goals-against"> 26<!----></td>
+        <td class="widget-match-standings__goals-diff"> +68<!----></td>
+        <td class="widget-match-standings__pts"> 92<!----></td>
+        <td class="widget-match-standings__last-five">
+          <!---->
+                <a href="/id/pertandingan/liverpool-fc-v-wolverhampton-wanderers/ew00782ij811c6pg9edxv5dec" title="Menang" data-team-home="Liverpool FC" data-team-away="Wolverhampton Wanderers" data-index="1" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/southampton-fc-v-liverpool-fc/eut6muannjkpg3ujhhco6syz8" title="Menang" data-team-home="Southampton FC" data-team-away="Liverpool FC" data-index="2" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/aston-villa-fc-v-liverpool-fc/epy77rlqz8p2jtgcgido6sj6c" title="Menang" data-team-home="Aston Villa FC" data-team-away="Liverpool FC" data-index="3" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/liverpool-fc-v-tottenham-hotspur-fc/etxsf4f5g7emkxjc3l64exel0" title="Imbang" data-team-home="Liverpool FC" data-team-away="Tottenham Hotspur FC" data-index="4" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--draw">
+                    I
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/newcastle-united-fc-v-liverpool-fc/esfwer4bou8yq85lqfq1q1z4k" title="Menang" data-team-home="Newcastle United FC" data-team-away="Liverpool FC" data-index="5" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!---->
+        </td>
+</tr>
+
+    <!----><!---->
+
+  <tr class="widget-match-standings__row
+             widget-match-standings__row--
+             widget-match-standings__row--rank-status
+             widget-match-standings__row--rank-status-1" data-team-name="Chelsea FC" data-team-id="9q0arba2kbnywth8bkxlhgmdr" data-rank-change="">
+        <td> 3 </td>
+        <td class="widget-match-standings__rank-change-col">
+            <span class="widget-match-standings__rank-change
+                         widget-match-standings__rank-change--">
+            </span>
+        </td>
+        <td class=" widget-match-standings__team">
+            <a href="/id/tim/chelsea-fc/9q0arba2kbnywth8bkxlhgmdr">
+                <img width="30" height="30" class="widget-match-standings__crest" src="https://secure.cache.images.core.optasports.com/soccer/teams/30x30/uuid_9q0arba2kbnywth8bkxlhgmdr.png" alt="Chelsea FC" data-team-name="Chelsea FC">
+            </a>
+            <a class="widget-match-standings__link" href="/id/tim/chelsea-fc/9q0arba2kbnywth8bkxlhgmdr">
+                <abbr class="widget-match-standings__team--short-name" title="Chelsea FC" data-team-name="Chelsea FC"><!---->CHE
+                </abbr>
+                <span class="widget-match-standings__team--full-name" data-team-name="Chelsea FC">
+                    Chelsea FC
+                </span>
+            </a>
+
+        </td>
+        <td class="widget-match-standings__matches-played"> 38 </td>
+        <td class="widget-match-standings__matches-won"> 21 </td>
+        <td class="widget-match-standings__matches-drawn"> 11<!----></td>
+        <td class="widget-match-standings__matches-lost"> 6<!----></td>
+        <td class="widget-match-standings__goals-for"> 76<!----></td>
+        <td class="widget-match-standings__goals-against"> 33<!----></td>
+        <td class="widget-match-standings__goals-diff"> +43<!----></td>
+        <td class="widget-match-standings__pts"> 74<!----></td>
+        <td class="widget-match-standings__last-five">
+          <!---->
+                <a href="/id/pertandingan/chelsea-fc-v-watford-fc/evp5zum2cjlf9mx6bqf23bh1w" title="Menang" data-team-home="Chelsea FC" data-team-away="Watford FC" data-index="1" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/chelsea-fc-v-leicester-city-fc/ejwo9te0ye4nkw4b04txqkbo4" title="Imbang" data-team-home="Chelsea FC" data-team-away="Leicester City FC" data-index="2" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--draw">
+                    I
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/leeds-united-afc-v-chelsea-fc/eq5eok0pqzm4gst0m1n4gkb9w" title="Menang" data-team-home="Leeds United AFC" data-team-away="Chelsea FC" data-index="3" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/chelsea-fc-v-wolverhampton-wanderers/etmdvs9uvuvlm250pu34gg3kk" title="Imbang" data-team-home="Chelsea FC" data-team-away="Wolverhampton Wanderers" data-index="4" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--draw">
+                    I
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/everton-fc-v-chelsea-fc/es511pocsykde2f8bqlaimsyc" title="Kalah" data-team-home="Everton FC" data-team-away="Chelsea FC" data-index="5" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!---->
+        </td>
+</tr>
+
+    <!----><!---->
+
+  <tr class="widget-match-standings__row
+             widget-match-standings__row--active
+             widget-match-standings__row--rank-status
+             widget-match-standings__row--rank-status-1" data-team-name="Tottenham Hotspur FC" data-team-id="22doj4sgsocqpxw45h607udje" data-rank-change="">
+        <td> 4 </td>
+        <td class="widget-match-standings__rank-change-col">
+            <span class="widget-match-standings__rank-change
+                         widget-match-standings__rank-change--">
+            </span>
+        </td>
+        <td class=" widget-match-standings__team">
+            <a href="/id/tim/tottenham-hotspur-fc/22doj4sgsocqpxw45h607udje">
+                <img width="30" height="30" class="widget-match-standings__crest" src="https://secure.cache.images.core.optasports.com/soccer/teams/30x30/uuid_22doj4sgsocqpxw45h607udje.png" alt="Tottenham Hotspur FC" data-team-name="Tottenham Hotspur FC">
+            </a>
+            <a class="widget-match-standings__link" href="/id/tim/tottenham-hotspur-fc/22doj4sgsocqpxw45h607udje">
+                <abbr class="widget-match-standings__team--short-name" title="Tottenham Hotspur FC" data-team-name="Tottenham Hotspur FC"><!---->TOT
+                </abbr>
+                <span class="widget-match-standings__team--full-name" data-team-name="Tottenham Hotspur FC">
+                    Tottenham Hotspur FC
+                </span>
+            </a>
+
+        </td>
+        <td class="widget-match-standings__matches-played"> 38 </td>
+        <td class="widget-match-standings__matches-won"> 22 </td>
+        <td class="widget-match-standings__matches-drawn"> 5<!----></td>
+        <td class="widget-match-standings__matches-lost"> 11<!----></td>
+        <td class="widget-match-standings__goals-for"> 69<!----></td>
+        <td class="widget-match-standings__goals-against"> 40<!----></td>
+        <td class="widget-match-standings__goals-diff"> +29<!----></td>
+        <td class="widget-match-standings__pts"> 71<!----></td>
+        <td class="widget-match-standings__last-five">
+          <!---->
+                <a href="/id/pertandingan/norwich-city-fc-v-tottenham-hotspur-fc/ew92044hbj98z55l8rxc6eqz8" title="Menang" data-team-home="Norwich City FC" data-team-away="Tottenham Hotspur FC" data-index="1" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/tottenham-hotspur-fc-v-burnley-fc/euwszzmn1g1do9jdtcmuj5xxw" title="Menang" data-team-home="Tottenham Hotspur FC" data-team-away="Burnley FC" data-index="2" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/tottenham-hotspur-fc-v-arsenal-fc/eeu11rxkv9kfsx6um148xvggk" title="Menang" data-team-home="Tottenham Hotspur FC" data-team-away="Arsenal FC" data-index="3" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/liverpool-fc-v-tottenham-hotspur-fc/etxsf4f5g7emkxjc3l64exel0" title="Imbang" data-team-home="Liverpool FC" data-team-away="Tottenham Hotspur FC" data-index="4" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--draw">
+                    I
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/tottenham-hotspur-fc-v-leicester-city-fc/esp208wturxz7y92i42x6xc7o" title="Menang" data-team-home="Tottenham Hotspur FC" data-team-away="Leicester City FC" data-index="5" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!---->
+        </td>
+</tr>
+
+    <!----><!---->
+
+  <tr class="widget-match-standings__row
+             widget-match-standings__row--
+             widget-match-standings__row--rank-status
+             widget-match-standings__row--rank-status-2" data-team-name="Arsenal FC" data-team-id="4dsgumo7d4zupm2ugsvm4zm4d" data-rank-change="">
+        <td> 5 </td>
+        <td class="widget-match-standings__rank-change-col">
+            <span class="widget-match-standings__rank-change
+                         widget-match-standings__rank-change--">
+            </span>
+        </td>
+        <td class=" widget-match-standings__team">
+            <a href="/id/tim/arsenal-fc/4dsgumo7d4zupm2ugsvm4zm4d">
+                <img width="30" height="30" class="widget-match-standings__crest" src="https://secure.cache.images.core.optasports.com/soccer/teams/30x30/uuid_4dsgumo7d4zupm2ugsvm4zm4d.png" alt="Arsenal FC" data-team-name="Arsenal FC">
+            </a>
+            <a class="widget-match-standings__link" href="/id/tim/arsenal-fc/4dsgumo7d4zupm2ugsvm4zm4d">
+                <abbr class="widget-match-standings__team--short-name" title="Arsenal FC" data-team-name="Arsenal FC"><!---->ARS
+                </abbr>
+                <span class="widget-match-standings__team--full-name" data-team-name="Arsenal FC">
+                    Arsenal FC
+                </span>
+            </a>
+
+        </td>
+        <td class="widget-match-standings__matches-played"> 38 </td>
+        <td class="widget-match-standings__matches-won"> 22 </td>
+        <td class="widget-match-standings__matches-drawn"> 3<!----></td>
+        <td class="widget-match-standings__matches-lost"> 13<!----></td>
+        <td class="widget-match-standings__goals-for"> 61<!----></td>
+        <td class="widget-match-standings__goals-against"> 48<!----></td>
+        <td class="widget-match-standings__goals-diff"> +13<!----></td>
+        <td class="widget-match-standings__pts"> 69<!----></td>
+        <td class="widget-match-standings__last-five">
+          <!---->
+                <a href="/id/pertandingan/arsenal-fc-v-everton-fc/evazyz74jbbdix2ck2om4a2ac" title="Menang" data-team-home="Arsenal FC" data-team-away="Everton FC" data-index="1" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/newcastle-united-fc-v-arsenal-fc/eupkif983hd4c7xzwrux8tgr8" title="Kalah" data-team-home="Newcastle United FC" data-team-away="Arsenal FC" data-index="2" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/tottenham-hotspur-fc-v-arsenal-fc/eeu11rxkv9kfsx6um148xvggk" title="Kalah" data-team-home="Tottenham Hotspur FC" data-team-away="Arsenal FC" data-index="3" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/arsenal-fc-v-leeds-united-afc/et5dvt5ic5yw9ll73myns9k44" title="Menang" data-team-home="Arsenal FC" data-team-away="Leeds United AFC" data-index="4" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/west-ham-united-fc-v-arsenal-fc/esw7k83xn1ro7pbgtocav76z8" title="Menang" data-team-home="West Ham United FC" data-team-away="Arsenal FC" data-index="5" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!---->
+        </td>
+</tr>
+
+    <!----><!---->
+
+  <tr class="widget-match-standings__row
+             widget-match-standings__row--
+             widget-match-standings__row--rank-status
+             widget-match-standings__row--rank-status-2" data-team-name="Manchester United FC" data-team-id="6eqit8ye8aomdsrrq0hk3v7gh" data-rank-change="">
+        <td> 6 </td>
+        <td class="widget-match-standings__rank-change-col">
+            <span class="widget-match-standings__rank-change
+                         widget-match-standings__rank-change--">
+            </span>
+        </td>
+        <td class=" widget-match-standings__team">
+            <a href="/id/tim/manchester-united-fc/6eqit8ye8aomdsrrq0hk3v7gh">
+                <img width="30" height="30" class="widget-match-standings__crest" src="https://secure.cache.images.core.optasports.com/soccer/teams/30x30/uuid_6eqit8ye8aomdsrrq0hk3v7gh.png" alt="Manchester United FC" data-team-name="Manchester United FC">
+            </a>
+            <a class="widget-match-standings__link" href="/id/tim/manchester-united-fc/6eqit8ye8aomdsrrq0hk3v7gh">
+                <abbr class="widget-match-standings__team--short-name" title="Manchester United FC" data-team-name="Manchester United FC"><!---->MUN
+                </abbr>
+                <span class="widget-match-standings__team--full-name" data-team-name="Manchester United FC">
+                    Manchester United FC
+                </span>
+            </a>
+
+        </td>
+        <td class="widget-match-standings__matches-played"> 38 </td>
+        <td class="widget-match-standings__matches-won"> 16 </td>
+        <td class="widget-match-standings__matches-drawn"> 10<!----></td>
+        <td class="widget-match-standings__matches-lost"> 12<!----></td>
+        <td class="widget-match-standings__goals-for"> 57<!----></td>
+        <td class="widget-match-standings__goals-against"> 57<!----></td>
+        <td class="widget-match-standings__goals-diff"> 0<!----></td>
+        <td class="widget-match-standings__pts"> 58<!----></td>
+        <td class="widget-match-standings__last-five">
+          <!---->
+                <a href="/id/pertandingan/crystal-palace-fc-v-manchester-united-fc/evsvjnd27sxfxf6g2jnb36j9w" title="Kalah" data-team-home="Crystal Palace FC" data-team-away="Manchester United FC" data-index="1" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/brighton-hove-albion-fc-v-manchester-united-fc/ete2yuumm2wge6x3651f8i0b8" title="Kalah" data-team-home="Brighton &amp; Hove Albion FC" data-team-away="Manchester United FC" data-index="2" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/manchester-united-fc-v-brentford-fc/esca2re70ddie5tb0f4duc1sk" title="Menang" data-team-home="Manchester United FC" data-team-away="Brentford FC" data-index="3" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/manchester-united-fc-v-chelsea-fc/eum5fqcg17y99tjf4k8ykp5w4" title="Imbang" data-team-home="Manchester United FC" data-team-away="Chelsea FC" data-index="4" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--draw">
+                    I
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/arsenal-fc-v-manchester-united-fc/er0hk4uqcifoo8iucjpfizv2s" title="Kalah" data-team-home="Arsenal FC" data-team-away="Manchester United FC" data-index="5" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!---->
+        </td>
+</tr>
+
+    <!----><!---->
+
+  <tr class="widget-match-standings__row
+             widget-match-standings__row--
+             widget-match-standings__row--rank-status
+             widget-match-standings__row--rank-status-3" data-team-name="West Ham United FC" data-team-id="4txjdaqveermfryvbfrr4taf7" data-rank-change="">
+        <td> 7 </td>
+        <td class="widget-match-standings__rank-change-col">
+            <span class="widget-match-standings__rank-change
+                         widget-match-standings__rank-change--">
+            </span>
+        </td>
+        <td class=" widget-match-standings__team">
+            <a href="/id/tim/west-ham-united-fc/4txjdaqveermfryvbfrr4taf7">
+                <img width="30" height="30" class="widget-match-standings__crest" src="https://secure.cache.images.core.optasports.com/soccer/teams/30x30/uuid_4txjdaqveermfryvbfrr4taf7.png" alt="West Ham United FC" data-team-name="West Ham United FC">
+            </a>
+            <a class="widget-match-standings__link" href="/id/tim/west-ham-united-fc/4txjdaqveermfryvbfrr4taf7">
+                <abbr class="widget-match-standings__team--short-name" title="West Ham United FC" data-team-name="West Ham United FC"><!---->WHU
+                </abbr>
+                <span class="widget-match-standings__team--full-name" data-team-name="West Ham United FC">
+                    West Ham United FC
+                </span>
+            </a>
+
+        </td>
+        <td class="widget-match-standings__matches-played"> 38 </td>
+        <td class="widget-match-standings__matches-won"> 16 </td>
+        <td class="widget-match-standings__matches-drawn"> 8<!----></td>
+        <td class="widget-match-standings__matches-lost"> 14<!----></td>
+        <td class="widget-match-standings__goals-for"> 60<!----></td>
+        <td class="widget-match-standings__goals-against"> 51<!----></td>
+        <td class="widget-match-standings__goals-diff"> +9<!----></td>
+        <td class="widget-match-standings__pts"> 56<!----></td>
+        <td class="widget-match-standings__last-five">
+          <!---->
+                <a href="/id/pertandingan/brighton-hove-albion-fc-v-west-ham-united-fc/evhwmkxe35cpehjdezsmv3rpw" title="Kalah" data-team-home="Brighton &amp; Hove Albion FC" data-team-away="West Ham United FC" data-index="1" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/west-ham-united-fc-v-manchester-city-fc/ev43wljl3ipbfh804sg1iun10" title="Imbang" data-team-home="West Ham United FC" data-team-away="Manchester City FC" data-index="2" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--draw">
+                    I
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/norwich-city-fc-v-west-ham-united-fc/eu5afddt4jn8hv7xk9v9w3sb8" title="Menang" data-team-home="Norwich City FC" data-team-away="West Ham United FC" data-index="3" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/west-ham-united-fc-v-arsenal-fc/esw7k83xn1ro7pbgtocav76z8" title="Kalah" data-team-home="West Ham United FC" data-team-away="Arsenal FC" data-index="4" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/chelsea-fc-v-west-ham-united-fc/eret2ftd24049kljejnz1n85w" title="Kalah" data-team-home="Chelsea FC" data-team-away="West Ham United FC" data-index="5" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!---->
+        </td>
+</tr>
+
+    <!----><!---->
+
+  <tr class="widget-match-standings__row
+             widget-match-standings__row--
+             widget-match-standings__row--rank-status
+             widget-match-standings__row--rank-status-null" data-team-name="Leicester City FC" data-team-id="avxknfz4f6ob0rv9dbnxdzde0" data-rank-change="">
+        <td> 8 </td>
+        <td class="widget-match-standings__rank-change-col">
+            <span class="widget-match-standings__rank-change
+                         widget-match-standings__rank-change--">
+            </span>
+        </td>
+        <td class=" widget-match-standings__team">
+            <a href="/id/tim/leicester-city-fc/avxknfz4f6ob0rv9dbnxdzde0">
+                <img width="30" height="30" class="widget-match-standings__crest" src="https://secure.cache.images.core.optasports.com/soccer/teams/30x30/uuid_avxknfz4f6ob0rv9dbnxdzde0.png" alt="Leicester City FC" data-team-name="Leicester City FC">
+            </a>
+            <a class="widget-match-standings__link" href="/id/tim/leicester-city-fc/avxknfz4f6ob0rv9dbnxdzde0">
+                <abbr class="widget-match-standings__team--short-name" title="Leicester City FC" data-team-name="Leicester City FC"><!---->LEI
+                </abbr>
+                <span class="widget-match-standings__team--full-name" data-team-name="Leicester City FC">
+                    Leicester City FC
+                </span>
+            </a>
+
+        </td>
+        <td class="widget-match-standings__matches-played"> 38 </td>
+        <td class="widget-match-standings__matches-won"> 14 </td>
+        <td class="widget-match-standings__matches-drawn"> 10<!----></td>
+        <td class="widget-match-standings__matches-lost"> 14<!----></td>
+        <td class="widget-match-standings__goals-for"> 62<!----></td>
+        <td class="widget-match-standings__goals-against"> 59<!----></td>
+        <td class="widget-match-standings__goals-diff"> +3<!----></td>
+        <td class="widget-match-standings__pts"> 52<!----></td>
+        <td class="widget-match-standings__last-five">
+          <!---->
+                <a href="/id/pertandingan/leicester-city-fc-v-southampton-fc/evwer79avfuxtegru4k4hr2fo" title="Menang" data-team-home="Leicester City FC" data-team-away="Southampton FC" data-index="1" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/chelsea-fc-v-leicester-city-fc/ejwo9te0ye4nkw4b04txqkbo4" title="Imbang" data-team-home="Chelsea FC" data-team-away="Leicester City FC" data-index="2" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--draw">
+                    I
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/watford-fc-v-leicester-city-fc/ev0jmmdhugdkadi5jzxxgjbpw" title="Menang" data-team-home="Watford FC" data-team-away="Leicester City FC" data-index="3" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/leicester-city-fc-v-norwich-city-fc/edl9md7qp12n8jt9wr6k5j8d0" title="Menang" data-team-home="Leicester City FC" data-team-away="Norwich City FC" data-index="4" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/leicester-city-fc-v-everton-fc/ettyrum48hnu62tdatuu1drmc" title="Kalah" data-team-home="Leicester City FC" data-team-away="Everton FC" data-index="5" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!---->
+        </td>
+</tr>
+
+    <!----><!---->
+
+  <tr class="widget-match-standings__row
+             widget-match-standings__row--
+             widget-match-standings__row--rank-status
+             widget-match-standings__row--rank-status-null" data-team-name="Brighton &amp; Hove Albion FC" data-team-id="e5p0ehyguld7egzhiedpdnc3w" data-rank-change="">
+        <td> 9 </td>
+        <td class="widget-match-standings__rank-change-col">
+            <span class="widget-match-standings__rank-change
+                         widget-match-standings__rank-change--">
+            </span>
+        </td>
+        <td class=" widget-match-standings__team">
+            <a href="/id/tim/brighton-hove-albion-fc/e5p0ehyguld7egzhiedpdnc3w">
+                <img width="30" height="30" class="widget-match-standings__crest" src="https://secure.cache.images.core.optasports.com/soccer/teams/30x30/uuid_e5p0ehyguld7egzhiedpdnc3w.png" alt="Brighton &amp; Hove Albion FC" data-team-name="Brighton &amp; Hove Albion FC">
+            </a>
+            <a class="widget-match-standings__link" href="/id/tim/brighton-hove-albion-fc/e5p0ehyguld7egzhiedpdnc3w">
+                <abbr class="widget-match-standings__team--short-name" title="Brighton &amp; Hove Albion FC" data-team-name="Brighton &amp; Hove Albion FC"><!---->BHA
+                </abbr>
+                <span class="widget-match-standings__team--full-name" data-team-name="Brighton &amp; Hove Albion FC">
+                    Brighton &amp; Hove Albion FC
+                </span>
+            </a>
+
+        </td>
+        <td class="widget-match-standings__matches-played"> 38 </td>
+        <td class="widget-match-standings__matches-won"> 12 </td>
+        <td class="widget-match-standings__matches-drawn"> 15<!----></td>
+        <td class="widget-match-standings__matches-lost"> 11<!----></td>
+        <td class="widget-match-standings__goals-for"> 42<!----></td>
+        <td class="widget-match-standings__goals-against"> 44<!----></td>
+        <td class="widget-match-standings__goals-diff"> -2<!----></td>
+        <td class="widget-match-standings__pts"> 51<!----></td>
+        <td class="widget-match-standings__last-five">
+          <!---->
+                <a href="/id/pertandingan/brighton-hove-albion-fc-v-west-ham-united-fc/evhwmkxe35cpehjdezsmv3rpw" title="Menang" data-team-home="Brighton &amp; Hove Albion FC" data-team-away="West Ham United FC" data-index="1" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/leeds-united-afc-v-brighton-hove-albion-fc/eugc7iqlmazpi8v38kq7l69ec" title="Imbang" data-team-home="Leeds United AFC" data-team-away="Brighton &amp; Hove Albion FC" data-index="2" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--draw">
+                    I
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/brighton-hove-albion-fc-v-manchester-united-fc/ete2yuumm2wge6x3651f8i0b8" title="Menang" data-team-home="Brighton &amp; Hove Albion FC" data-team-away="Manchester United FC" data-index="3" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/wolverhampton-wanderers-v-brighton-hove-albion-fc/et07qjxj8ssevrr7u8oxqqdqs" title="Menang" data-team-home="Wolverhampton Wanderers" data-team-away="Brighton &amp; Hove Albion FC" data-index="4" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/brighton-hove-albion-fc-v-southampton-fc/er7peaudvodjcd7sbzqq5x5as" title="Imbang" data-team-home="Brighton &amp; Hove Albion FC" data-team-away="Southampton FC" data-index="5" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--draw">
+                    I
+                </a>
+          <!---->
+        </td>
+</tr>
+
+    <!----><!---->
+
+  <tr class="widget-match-standings__row
+             widget-match-standings__row--
+             widget-match-standings__row--rank-status
+             widget-match-standings__row--rank-status-null" data-team-name="Wolverhampton Wanderers" data-team-id="b9si1jn1lfxfund69e9ogcu2n" data-rank-change="">
+        <td> 10 </td>
+        <td class="widget-match-standings__rank-change-col">
+            <span class="widget-match-standings__rank-change
+                         widget-match-standings__rank-change--">
+            </span>
+        </td>
+        <td class=" widget-match-standings__team">
+            <a href="/id/tim/wolverhampton-wanderers/b9si1jn1lfxfund69e9ogcu2n">
+                <img width="30" height="30" class="widget-match-standings__crest" src="https://secure.cache.images.core.optasports.com/soccer/teams/30x30/uuid_b9si1jn1lfxfund69e9ogcu2n.png" alt="Wolverhampton Wanderers" data-team-name="Wolverhampton Wanderers">
+            </a>
+            <a class="widget-match-standings__link" href="/id/tim/wolverhampton-wanderers/b9si1jn1lfxfund69e9ogcu2n">
+                <abbr class="widget-match-standings__team--short-name" title="Wolverhampton Wanderers" data-team-name="Wolverhampton Wanderers"><!---->WOL
+                </abbr>
+                <span class="widget-match-standings__team--full-name" data-team-name="Wolverhampton Wanderers">
+                    Wolverhampton Wanderers
+                </span>
+            </a>
+
+        </td>
+        <td class="widget-match-standings__matches-played"> 38 </td>
+        <td class="widget-match-standings__matches-won"> 15 </td>
+        <td class="widget-match-standings__matches-drawn"> 6<!----></td>
+        <td class="widget-match-standings__matches-lost"> 17<!----></td>
+        <td class="widget-match-standings__goals-for"> 38<!----></td>
+        <td class="widget-match-standings__goals-against"> 43<!----></td>
+        <td class="widget-match-standings__goals-diff"> -5<!----></td>
+        <td class="widget-match-standings__pts"> 51<!----></td>
+        <td class="widget-match-standings__last-five">
+          <!---->
+                <a href="/id/pertandingan/liverpool-fc-v-wolverhampton-wanderers/ew00782ij811c6pg9edxv5dec" title="Kalah" data-team-home="Liverpool FC" data-team-away="Wolverhampton Wanderers" data-index="1" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/wolverhampton-wanderers-v-norwich-city-fc/ev7jd7vewl7wd97ltkvkj74lw" title="Imbang" data-team-home="Wolverhampton Wanderers" data-team-away="Norwich City FC" data-index="2" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--draw">
+                    I
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/wolverhampton-wanderers-v-manchester-city-fc/equkppy5e29uu3o1q7ll0sges" title="Kalah" data-team-home="Wolverhampton Wanderers" data-team-away="Manchester City FC" data-index="3" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/chelsea-fc-v-wolverhampton-wanderers/etmdvs9uvuvlm250pu34gg3kk" title="Imbang" data-team-home="Chelsea FC" data-team-away="Wolverhampton Wanderers" data-index="4" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--draw">
+                    I
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/wolverhampton-wanderers-v-brighton-hove-albion-fc/et07qjxj8ssevrr7u8oxqqdqs" title="Kalah" data-team-home="Wolverhampton Wanderers" data-team-away="Brighton &amp; Hove Albion FC" data-index="5" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!---->
+        </td>
+</tr>
+
+    <!----><!---->
+
+  <tr class="widget-match-standings__row
+             widget-match-standings__row--
+             widget-match-standings__row--rank-status
+             widget-match-standings__row--rank-status-null" data-team-name="Newcastle United FC" data-team-id="7vn2i2kd35zuetw6b38gw9jsz" data-rank-change="">
+        <td> 11 </td>
+        <td class="widget-match-standings__rank-change-col">
+            <span class="widget-match-standings__rank-change
+                         widget-match-standings__rank-change--">
+            </span>
+        </td>
+        <td class=" widget-match-standings__team">
+            <a href="/id/tim/newcastle-united-fc/7vn2i2kd35zuetw6b38gw9jsz">
+                <img width="30" height="30" class="widget-match-standings__crest" src="https://secure.cache.images.core.optasports.com/soccer/teams/30x30/uuid_7vn2i2kd35zuetw6b38gw9jsz.png" alt="Newcastle United FC" data-team-name="Newcastle United FC">
+            </a>
+            <a class="widget-match-standings__link" href="/id/tim/newcastle-united-fc/7vn2i2kd35zuetw6b38gw9jsz">
+                <abbr class="widget-match-standings__team--short-name" title="Newcastle United FC" data-team-name="Newcastle United FC"><!---->NEW
+                </abbr>
+                <span class="widget-match-standings__team--full-name" data-team-name="Newcastle United FC">
+                    Newcastle United FC
+                </span>
+            </a>
+
+        </td>
+        <td class="widget-match-standings__matches-played"> 38 </td>
+        <td class="widget-match-standings__matches-won"> 13 </td>
+        <td class="widget-match-standings__matches-drawn"> 10<!----></td>
+        <td class="widget-match-standings__matches-lost"> 15<!----></td>
+        <td class="widget-match-standings__goals-for"> 44<!----></td>
+        <td class="widget-match-standings__goals-against"> 62<!----></td>
+        <td class="widget-match-standings__goals-diff"> -18<!----></td>
+        <td class="widget-match-standings__pts"> 49<!----></td>
+        <td class="widget-match-standings__last-five">
+          <!---->
+                <a href="/id/pertandingan/burnley-fc-v-newcastle-united-fc/evlk4ksvhlujhumcun9m3ixp0" title="Menang" data-team-home="Burnley FC" data-team-away="Newcastle United FC" data-index="1" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/newcastle-united-fc-v-arsenal-fc/eupkif983hd4c7xzwrux8tgr8" title="Menang" data-team-home="Newcastle United FC" data-team-away="Arsenal FC" data-index="2" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/manchester-city-fc-v-newcastle-united-fc/eu1g45kc1lotthw7xjtz648ic" title="Kalah" data-team-home="Manchester City FC" data-team-away="Newcastle United FC" data-index="3" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/newcastle-united-fc-v-liverpool-fc/esfwer4bou8yq85lqfq1q1z4k" title="Kalah" data-team-home="Newcastle United FC" data-team-away="Liverpool FC" data-index="4" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/norwich-city-fc-v-newcastle-united-fc/erxfm722tonsr4nfrte4am6tw" title="Menang" data-team-home="Norwich City FC" data-team-away="Newcastle United FC" data-index="5" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!---->
+        </td>
+</tr>
+
+    <!----><!---->
+
+  <tr class="widget-match-standings__row
+             widget-match-standings__row--
+             widget-match-standings__row--rank-status
+             widget-match-standings__row--rank-status-null" data-team-name="Crystal Palace FC" data-team-id="1c8m2ko0wxq1asfkuykurdr0y" data-rank-change="">
+        <td> 12 </td>
+        <td class="widget-match-standings__rank-change-col">
+            <span class="widget-match-standings__rank-change
+                         widget-match-standings__rank-change--">
+            </span>
+        </td>
+        <td class=" widget-match-standings__team">
+            <a href="/id/tim/crystal-palace-fc/1c8m2ko0wxq1asfkuykurdr0y">
+                <img width="30" height="30" class="widget-match-standings__crest" src="https://secure.cache.images.core.optasports.com/soccer/teams/30x30/uuid_1c8m2ko0wxq1asfkuykurdr0y.png" alt="Crystal Palace FC" data-team-name="Crystal Palace FC">
+            </a>
+            <a class="widget-match-standings__link" href="/id/tim/crystal-palace-fc/1c8m2ko0wxq1asfkuykurdr0y">
+                <abbr class="widget-match-standings__team--short-name" title="Crystal Palace FC" data-team-name="Crystal Palace FC"><!---->CRY
+                </abbr>
+                <span class="widget-match-standings__team--full-name" data-team-name="Crystal Palace FC">
+                    Crystal Palace FC
+                </span>
+            </a>
+
+        </td>
+        <td class="widget-match-standings__matches-played"> 38 </td>
+        <td class="widget-match-standings__matches-won"> 11 </td>
+        <td class="widget-match-standings__matches-drawn"> 15<!----></td>
+        <td class="widget-match-standings__matches-lost"> 12<!----></td>
+        <td class="widget-match-standings__goals-for"> 50<!----></td>
+        <td class="widget-match-standings__goals-against"> 46<!----></td>
+        <td class="widget-match-standings__goals-diff"> +4<!----></td>
+        <td class="widget-match-standings__pts"> 48<!----></td>
+        <td class="widget-match-standings__last-five">
+          <!---->
+                <a href="/id/pertandingan/crystal-palace-fc-v-manchester-united-fc/evsvjnd27sxfxf6g2jnb36j9w" title="Menang" data-team-home="Crystal Palace FC" data-team-away="Manchester United FC" data-index="1" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/everton-fc-v-crystal-palace-fc/eq1qkkbxrjavbwuzo6ucrni1g" title="Kalah" data-team-home="Everton FC" data-team-away="Crystal Palace FC" data-index="2" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/aston-villa-fc-v-crystal-palace-fc/eu911qj08auitsvi0c9090rv8" title="Imbang" data-team-home="Aston Villa FC" data-team-away="Crystal Palace FC" data-index="3" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--draw">
+                    I
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/crystal-palace-fc-v-watford-fc/etq9mvad47vuzl6grv7b9xjis" title="Menang" data-team-home="Crystal Palace FC" data-team-away="Watford FC" data-index="4" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/southampton-fc-v-crystal-palace-fc/esjlwktg60ry3iidi5appqwwk" title="Menang" data-team-home="Southampton FC" data-team-away="Crystal Palace FC" data-index="5" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!---->
+        </td>
+</tr>
+
+    <!----><!---->
+
+  <tr class="widget-match-standings__row
+             widget-match-standings__row--
+             widget-match-standings__row--rank-status
+             widget-match-standings__row--rank-status-null" data-team-name="Brentford FC" data-team-id="7yx5dqhhphyvfisohikodajhv" data-rank-change="">
+        <td> 13 </td>
+        <td class="widget-match-standings__rank-change-col">
+            <span class="widget-match-standings__rank-change
+                         widget-match-standings__rank-change--">
+            </span>
+        </td>
+        <td class=" widget-match-standings__team">
+            <a href="/id/tim/brentford-fc/7yx5dqhhphyvfisohikodajhv">
+                <img width="30" height="30" class="widget-match-standings__crest" src="https://secure.cache.images.core.optasports.com/soccer/teams/30x30/uuid_7yx5dqhhphyvfisohikodajhv.png" alt="Brentford FC" data-team-name="Brentford FC">
+            </a>
+            <a class="widget-match-standings__link" href="/id/tim/brentford-fc/7yx5dqhhphyvfisohikodajhv">
+                <abbr class="widget-match-standings__team--short-name" title="Brentford FC" data-team-name="Brentford FC"><!---->BRE
+                </abbr>
+                <span class="widget-match-standings__team--full-name" data-team-name="Brentford FC">
+                    Brentford FC
+                </span>
+            </a>
+
+        </td>
+        <td class="widget-match-standings__matches-played"> 38 </td>
+        <td class="widget-match-standings__matches-won"> 13 </td>
+        <td class="widget-match-standings__matches-drawn"> 7<!----></td>
+        <td class="widget-match-standings__matches-lost"> 18<!----></td>
+        <td class="widget-match-standings__goals-for"> 48<!----></td>
+        <td class="widget-match-standings__goals-against"> 56<!----></td>
+        <td class="widget-match-standings__goals-diff"> -8<!----></td>
+        <td class="widget-match-standings__pts"> 46<!----></td>
+        <td class="widget-match-standings__last-five">
+          <!---->
+                <a href="/id/pertandingan/brentford-fc-v-leeds-united-afc/evehu5km9odigiudd8tfxhp1w" title="Kalah" data-team-home="Brentford FC" data-team-away="Leeds United AFC" data-index="1" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/everton-fc-v-brentford-fc/eucs0shuzz4dw979hfv0krehg" title="Menang" data-team-home="Everton FC" data-team-away="Brentford FC" data-index="2" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/brentford-fc-v-southampton-fc/et9nxzgih3v9n609o5o35tfro" title="Menang" data-team-home="Brentford FC" data-team-away="Southampton FC" data-index="3" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/manchester-united-fc-v-brentford-fc/esca2re70ddie5tb0f4duc1sk" title="Kalah" data-team-home="Manchester United FC" data-team-away="Brentford FC" data-index="4" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/brentford-fc-v-tottenham-hotspur-fc/er43r96u2vmhpms3u2uptv3tg" title="Imbang" data-team-home="Brentford FC" data-team-away="Tottenham Hotspur FC" data-index="5" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--draw">
+                    I
+                </a>
+          <!---->
+        </td>
+</tr>
+
+    <!----><!---->
+
+  <tr class="widget-match-standings__row
+             widget-match-standings__row--
+             widget-match-standings__row--rank-status
+             widget-match-standings__row--rank-status-null" data-team-name="Aston Villa FC" data-team-id="b496gs285it6bheuikox6z9mj" data-rank-change="">
+        <td> 14 </td>
+        <td class="widget-match-standings__rank-change-col">
+            <span class="widget-match-standings__rank-change
+                         widget-match-standings__rank-change--">
+            </span>
+        </td>
+        <td class=" widget-match-standings__team">
+            <a href="/id/tim/aston-villa-fc/b496gs285it6bheuikox6z9mj">
+                <img width="30" height="30" class="widget-match-standings__crest" src="https://secure.cache.images.core.optasports.com/soccer/teams/30x30/uuid_b496gs285it6bheuikox6z9mj.png" alt="Aston Villa FC" data-team-name="Aston Villa FC">
+            </a>
+            <a class="widget-match-standings__link" href="/id/tim/aston-villa-fc/b496gs285it6bheuikox6z9mj">
+                <abbr class="widget-match-standings__team--short-name" title="Aston Villa FC" data-team-name="Aston Villa FC"><!---->AVL
+                </abbr>
+                <span class="widget-match-standings__team--full-name" data-team-name="Aston Villa FC">
+                    Aston Villa FC
+                </span>
+            </a>
+
+        </td>
+        <td class="widget-match-standings__matches-played"> 38 </td>
+        <td class="widget-match-standings__matches-won"> 13 </td>
+        <td class="widget-match-standings__matches-drawn"> 6<!----></td>
+        <td class="widget-match-standings__matches-lost"> 19<!----></td>
+        <td class="widget-match-standings__goals-for"> 52<!----></td>
+        <td class="widget-match-standings__goals-against"> 54<!----></td>
+        <td class="widget-match-standings__goals-diff"> -2<!----></td>
+        <td class="widget-match-standings__pts"> 45<!----></td>
+        <td class="widget-match-standings__last-five">
+          <!---->
+                <a href="/id/pertandingan/manchester-city-fc-v-aston-villa-fc/ew3gjwasqfowc0cyimi3akzdg" title="Kalah" data-team-home="Manchester City FC" data-team-away="Aston Villa FC" data-index="1" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/aston-villa-fc-v-burnley-fc/e9s4y43b7kjt54n3ti8ltz8d0" title="Imbang" data-team-home="Aston Villa FC" data-team-away="Burnley FC" data-index="2" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--draw">
+                    I
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/aston-villa-fc-v-crystal-palace-fc/eu911qj08auitsvi0c9090rv8" title="Imbang" data-team-home="Aston Villa FC" data-team-away="Crystal Palace FC" data-index="3" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--draw">
+                    I
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/aston-villa-fc-v-liverpool-fc/epy77rlqz8p2jtgcgido6sj6c" title="Kalah" data-team-home="Aston Villa FC" data-team-away="Liverpool FC" data-index="4" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/burnley-fc-v-aston-villa-fc/eti61j95amqm9oyzw6bbcp9uc" title="Menang" data-team-home="Burnley FC" data-team-away="Aston Villa FC" data-index="5" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!---->
+        </td>
+</tr>
+
+    <!----><!---->
+
+  <tr class="widget-match-standings__row
+             widget-match-standings__row--
+             widget-match-standings__row--rank-status
+             widget-match-standings__row--rank-status-null" data-team-name="Southampton FC" data-team-id="d5ydtvt96bv7fq04yqm2w2632" data-rank-change="">
+        <td> 15 </td>
+        <td class="widget-match-standings__rank-change-col">
+            <span class="widget-match-standings__rank-change
+                         widget-match-standings__rank-change--">
+            </span>
+        </td>
+        <td class=" widget-match-standings__team">
+            <a href="/id/tim/southampton-fc/d5ydtvt96bv7fq04yqm2w2632">
+                <img width="30" height="30" class="widget-match-standings__crest" src="https://secure.cache.images.core.optasports.com/soccer/teams/30x30/uuid_d5ydtvt96bv7fq04yqm2w2632.png" alt="Southampton FC" data-team-name="Southampton FC">
+            </a>
+            <a class="widget-match-standings__link" href="/id/tim/southampton-fc/d5ydtvt96bv7fq04yqm2w2632">
+                <abbr class="widget-match-standings__team--short-name" title="Southampton FC" data-team-name="Southampton FC"><!---->SOU
+                </abbr>
+                <span class="widget-match-standings__team--full-name" data-team-name="Southampton FC">
+                    Southampton FC
+                </span>
+            </a>
+
+        </td>
+        <td class="widget-match-standings__matches-played"> 38 </td>
+        <td class="widget-match-standings__matches-won"> 9 </td>
+        <td class="widget-match-standings__matches-drawn"> 13<!----></td>
+        <td class="widget-match-standings__matches-lost"> 16<!----></td>
+        <td class="widget-match-standings__goals-for"> 43<!----></td>
+        <td class="widget-match-standings__goals-against"> 67<!----></td>
+        <td class="widget-match-standings__goals-diff"> -24<!----></td>
+        <td class="widget-match-standings__pts"> 40<!----></td>
+        <td class="widget-match-standings__last-five">
+          <!---->
+                <a href="/id/pertandingan/leicester-city-fc-v-southampton-fc/evwer79avfuxtegru4k4hr2fo" title="Kalah" data-team-home="Leicester City FC" data-team-away="Southampton FC" data-index="1" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/southampton-fc-v-liverpool-fc/eut6muannjkpg3ujhhco6syz8" title="Kalah" data-team-home="Southampton FC" data-team-away="Liverpool FC" data-index="2" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/brentford-fc-v-southampton-fc/et9nxzgih3v9n609o5o35tfro" title="Kalah" data-team-home="Brentford FC" data-team-away="Southampton FC" data-index="3" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/southampton-fc-v-crystal-palace-fc/esjlwktg60ry3iidi5appqwwk" title="Kalah" data-team-home="Southampton FC" data-team-away="Crystal Palace FC" data-index="4" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/brighton-hove-albion-fc-v-southampton-fc/er7peaudvodjcd7sbzqq5x5as" title="Imbang" data-team-home="Brighton &amp; Hove Albion FC" data-team-away="Southampton FC" data-index="5" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--draw">
+                    I
+                </a>
+          <!---->
+        </td>
+</tr>
+
+    <!----><!---->
+
+  <tr class="widget-match-standings__row
+             widget-match-standings__row--
+             widget-match-standings__row--rank-status
+             widget-match-standings__row--rank-status-null" data-team-name="Everton FC" data-team-id="ehd2iemqmschhj2ec0vayztzz" data-rank-change="">
+        <td> 16 </td>
+        <td class="widget-match-standings__rank-change-col">
+            <span class="widget-match-standings__rank-change
+                         widget-match-standings__rank-change--">
+            </span>
+        </td>
+        <td class=" widget-match-standings__team">
+            <a href="/id/tim/everton-fc/ehd2iemqmschhj2ec0vayztzz">
+                <img width="30" height="30" class="widget-match-standings__crest" src="https://secure.cache.images.core.optasports.com/soccer/teams/30x30/uuid_ehd2iemqmschhj2ec0vayztzz.png" alt="Everton FC" data-team-name="Everton FC">
+            </a>
+            <a class="widget-match-standings__link" href="/id/tim/everton-fc/ehd2iemqmschhj2ec0vayztzz">
+                <abbr class="widget-match-standings__team--short-name" title="Everton FC" data-team-name="Everton FC"><!---->EVE
+                </abbr>
+                <span class="widget-match-standings__team--full-name" data-team-name="Everton FC">
+                    Everton FC
+                </span>
+            </a>
+
+        </td>
+        <td class="widget-match-standings__matches-played"> 38 </td>
+        <td class="widget-match-standings__matches-won"> 11 </td>
+        <td class="widget-match-standings__matches-drawn"> 6<!----></td>
+        <td class="widget-match-standings__matches-lost"> 21<!----></td>
+        <td class="widget-match-standings__goals-for"> 43<!----></td>
+        <td class="widget-match-standings__goals-against"> 66<!----></td>
+        <td class="widget-match-standings__goals-diff"> -23<!----></td>
+        <td class="widget-match-standings__pts"> 39<!----></td>
+        <td class="widget-match-standings__last-five">
+          <!---->
+                <a href="/id/pertandingan/arsenal-fc-v-everton-fc/evazyz74jbbdix2ck2om4a2ac" title="Kalah" data-team-home="Arsenal FC" data-team-away="Everton FC" data-index="1" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/everton-fc-v-crystal-palace-fc/eq1qkkbxrjavbwuzo6ucrni1g" title="Menang" data-team-home="Everton FC" data-team-away="Crystal Palace FC" data-index="2" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/everton-fc-v-brentford-fc/eucs0shuzz4dw979hfv0krehg" title="Kalah" data-team-home="Everton FC" data-team-away="Brentford FC" data-index="3" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/watford-fc-v-everton-fc/enmgdyyazgfvy4l1ta5ie0vmc" title="Imbang" data-team-home="Watford FC" data-team-away="Everton FC" data-index="4" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--draw">
+                    I
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/leicester-city-fc-v-everton-fc/ettyrum48hnu62tdatuu1drmc" title="Menang" data-team-home="Leicester City FC" data-team-away="Everton FC" data-index="5" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!---->
+        </td>
+</tr>
+
+    <!----><!---->
+
+  <tr class="widget-match-standings__row
+             widget-match-standings__row--
+             widget-match-standings__row--rank-status
+             widget-match-standings__row--rank-status-null" data-team-name="Leeds United AFC" data-team-id="48gk2hpqtsl6p9sx9kjhaydq4" data-rank-change="">
+        <td> 17 </td>
+        <td class="widget-match-standings__rank-change-col">
+            <span class="widget-match-standings__rank-change
+                         widget-match-standings__rank-change--">
+            </span>
+        </td>
+        <td class=" widget-match-standings__team">
+            <a href="/id/tim/leeds-united-afc/48gk2hpqtsl6p9sx9kjhaydq4">
+                <img width="30" height="30" class="widget-match-standings__crest" src="https://secure.cache.images.core.optasports.com/soccer/teams/30x30/uuid_48gk2hpqtsl6p9sx9kjhaydq4.png" alt="Leeds United AFC" data-team-name="Leeds United AFC">
+            </a>
+            <a class="widget-match-standings__link" href="/id/tim/leeds-united-afc/48gk2hpqtsl6p9sx9kjhaydq4">
+                <abbr class="widget-match-standings__team--short-name" title="Leeds United AFC" data-team-name="Leeds United AFC"><!---->LEE
+                </abbr>
+                <span class="widget-match-standings__team--full-name" data-team-name="Leeds United AFC">
+                    Leeds United AFC
+                </span>
+            </a>
+
+        </td>
+        <td class="widget-match-standings__matches-played"> 38 </td>
+        <td class="widget-match-standings__matches-won"> 9 </td>
+        <td class="widget-match-standings__matches-drawn"> 11<!----></td>
+        <td class="widget-match-standings__matches-lost"> 18<!----></td>
+        <td class="widget-match-standings__goals-for"> 42<!----></td>
+        <td class="widget-match-standings__goals-against"> 79<!----></td>
+        <td class="widget-match-standings__goals-diff"> -37<!----></td>
+        <td class="widget-match-standings__pts"> 38<!----></td>
+        <td class="widget-match-standings__last-five">
+          <!---->
+                <a href="/id/pertandingan/brentford-fc-v-leeds-united-afc/evehu5km9odigiudd8tfxhp1w" title="Menang" data-team-home="Brentford FC" data-team-away="Leeds United AFC" data-index="1" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/leeds-united-afc-v-brighton-hove-albion-fc/eugc7iqlmazpi8v38kq7l69ec" title="Imbang" data-team-home="Leeds United AFC" data-team-away="Brighton &amp; Hove Albion FC" data-index="2" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--draw">
+                    I
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/leeds-united-afc-v-chelsea-fc/eq5eok0pqzm4gst0m1n4gkb9w" title="Kalah" data-team-home="Leeds United AFC" data-team-away="Chelsea FC" data-index="3" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/arsenal-fc-v-leeds-united-afc/et5dvt5ic5yw9ll73myns9k44" title="Kalah" data-team-home="Arsenal FC" data-team-away="Leeds United AFC" data-index="4" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/leeds-united-afc-v-manchester-city-fc/es8m6eqlxwcx6c8z025a5r9jo" title="Kalah" data-team-home="Leeds United AFC" data-team-away="Manchester City FC" data-index="5" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!---->
+        </td>
+</tr>
+
+    <!----><!---->
+
+  <tr class="widget-match-standings__row
+             widget-match-standings__row--
+             widget-match-standings__row--rank-status
+             widget-match-standings__row--rank-status-relegation" data-team-name="Burnley FC" data-team-id="64bxxwu2mv2qqlv0monbkj1om" data-rank-change="">
+        <td> 18 </td>
+        <td class="widget-match-standings__rank-change-col">
+            <span class="widget-match-standings__rank-change
+                         widget-match-standings__rank-change--">
+            </span>
+        </td>
+        <td class=" widget-match-standings__team">
+            <a href="/id/tim/burnley-fc/64bxxwu2mv2qqlv0monbkj1om">
+                <img width="30" height="30" class="widget-match-standings__crest" src="https://secure.cache.images.core.optasports.com/soccer/teams/30x30/uuid_64bxxwu2mv2qqlv0monbkj1om.png" alt="Burnley FC" data-team-name="Burnley FC">
+            </a>
+            <a class="widget-match-standings__link" href="/id/tim/burnley-fc/64bxxwu2mv2qqlv0monbkj1om">
+                <abbr class="widget-match-standings__team--short-name" title="Burnley FC" data-team-name="Burnley FC"><!---->BRN
+                </abbr>
+                <span class="widget-match-standings__team--full-name" data-team-name="Burnley FC">
+                    Burnley FC
+                </span>
+            </a>
+
+        </td>
+        <td class="widget-match-standings__matches-played"> 38 </td>
+        <td class="widget-match-standings__matches-won"> 7 </td>
+        <td class="widget-match-standings__matches-drawn"> 14<!----></td>
+        <td class="widget-match-standings__matches-lost"> 17<!----></td>
+        <td class="widget-match-standings__goals-for"> 34<!----></td>
+        <td class="widget-match-standings__goals-against"> 53<!----></td>
+        <td class="widget-match-standings__goals-diff"> -19<!----></td>
+        <td class="widget-match-standings__pts"> 35<!----></td>
+        <td class="widget-match-standings__last-five">
+          <!---->
+                <a href="/id/pertandingan/burnley-fc-v-newcastle-united-fc/evlk4ksvhlujhumcun9m3ixp0" title="Kalah" data-team-home="Burnley FC" data-team-away="Newcastle United FC" data-index="1" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/aston-villa-fc-v-burnley-fc/e9s4y43b7kjt54n3ti8ltz8d0" title="Imbang" data-team-home="Aston Villa FC" data-team-away="Burnley FC" data-index="2" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--draw">
+                    I
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/tottenham-hotspur-fc-v-burnley-fc/euwszzmn1g1do9jdtcmuj5xxw" title="Kalah" data-team-home="Tottenham Hotspur FC" data-team-away="Burnley FC" data-index="3" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/burnley-fc-v-aston-villa-fc/eti61j95amqm9oyzw6bbcp9uc" title="Kalah" data-team-home="Burnley FC" data-team-away="Aston Villa FC" data-index="4" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/watford-fc-v-burnley-fc/esslirjgwmgsa8zy4parafw2c" title="Menang" data-team-home="Watford FC" data-team-away="Burnley FC" data-index="5" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--win">
+                    M
+                </a>
+          <!---->
+        </td>
+</tr>
+
+    <!----><!---->
+
+  <tr class="widget-match-standings__row
+             widget-match-standings__row--
+             widget-match-standings__row--rank-status
+             widget-match-standings__row--rank-status-relegation" data-team-name="Watford FC" data-team-id="4t83rqbdbekinxl5fz2ygsyta" data-rank-change="">
+        <td> 19 </td>
+        <td class="widget-match-standings__rank-change-col">
+            <span class="widget-match-standings__rank-change
+                         widget-match-standings__rank-change--">
+            </span>
+        </td>
+        <td class=" widget-match-standings__team">
+            <a href="/id/tim/watford-fc/4t83rqbdbekinxl5fz2ygsyta">
+                <img width="30" height="30" class="widget-match-standings__crest" src="https://secure.cache.images.core.optasports.com/soccer/teams/30x30/uuid_4t83rqbdbekinxl5fz2ygsyta.png" alt="Watford FC" data-team-name="Watford FC">
+            </a>
+            <a class="widget-match-standings__link" href="/id/tim/watford-fc/4t83rqbdbekinxl5fz2ygsyta">
+                <abbr class="widget-match-standings__team--short-name" title="Watford FC" data-team-name="Watford FC"><!---->WAT
+                </abbr>
+                <span class="widget-match-standings__team--full-name" data-team-name="Watford FC">
+                    Watford FC
+                </span>
+            </a>
+
+        </td>
+        <td class="widget-match-standings__matches-played"> 38 </td>
+        <td class="widget-match-standings__matches-won"> 6 </td>
+        <td class="widget-match-standings__matches-drawn"> 5<!----></td>
+        <td class="widget-match-standings__matches-lost"> 27<!----></td>
+        <td class="widget-match-standings__goals-for"> 34<!----></td>
+        <td class="widget-match-standings__goals-against"> 77<!----></td>
+        <td class="widget-match-standings__goals-diff"> -43<!----></td>
+        <td class="widget-match-standings__pts"> 23<!----></td>
+        <td class="widget-match-standings__last-five">
+          <!---->
+                <a href="/id/pertandingan/chelsea-fc-v-watford-fc/evp5zum2cjlf9mx6bqf23bh1w" title="Kalah" data-team-home="Chelsea FC" data-team-away="Watford FC" data-index="1" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/watford-fc-v-leicester-city-fc/ev0jmmdhugdkadi5jzxxgjbpw" title="Kalah" data-team-home="Watford FC" data-team-away="Leicester City FC" data-index="2" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/watford-fc-v-everton-fc/enmgdyyazgfvy4l1ta5ie0vmc" title="Imbang" data-team-home="Watford FC" data-team-away="Everton FC" data-index="3" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--draw">
+                    I
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/crystal-palace-fc-v-watford-fc/etq9mvad47vuzl6grv7b9xjis" title="Kalah" data-team-home="Crystal Palace FC" data-team-away="Watford FC" data-index="4" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/watford-fc-v-burnley-fc/esslirjgwmgsa8zy4parafw2c" title="Kalah" data-team-home="Watford FC" data-team-away="Burnley FC" data-index="5" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!---->
+        </td>
+</tr>
+
+    <!----><!---->
+
+  <tr class="widget-match-standings__row
+             widget-match-standings__row--active
+             widget-match-standings__row--rank-status
+             widget-match-standings__row--rank-status-relegation" data-team-name="Norwich City FC" data-team-id="suz80crpy3anixyzccmu6jzp" data-rank-change="">
+        <td> 20 </td>
+        <td class="widget-match-standings__rank-change-col">
+            <span class="widget-match-standings__rank-change
+                         widget-match-standings__rank-change--">
+            </span>
+        </td>
+        <td class=" widget-match-standings__team">
+            <a href="/id/tim/norwich-city-fc/suz80crpy3anixyzccmu6jzp">
+                <img width="30" height="30" class="widget-match-standings__crest" src="https://secure.cache.images.core.optasports.com/soccer/teams/30x30/uuid_suz80crpy3anixyzccmu6jzp.png" alt="Norwich City FC" data-team-name="Norwich City FC">
+            </a>
+            <a class="widget-match-standings__link" href="/id/tim/norwich-city-fc/suz80crpy3anixyzccmu6jzp">
+                <abbr class="widget-match-standings__team--short-name" title="Norwich City FC" data-team-name="Norwich City FC"><!---->NOR
+                </abbr>
+                <span class="widget-match-standings__team--full-name" data-team-name="Norwich City FC">
+                    Norwich City FC
+                </span>
+            </a>
+
+        </td>
+        <td class="widget-match-standings__matches-played"> 38 </td>
+        <td class="widget-match-standings__matches-won"> 5 </td>
+        <td class="widget-match-standings__matches-drawn"> 7<!----></td>
+        <td class="widget-match-standings__matches-lost"> 26<!----></td>
+        <td class="widget-match-standings__goals-for"> 23<!----></td>
+        <td class="widget-match-standings__goals-against"> 84<!----></td>
+        <td class="widget-match-standings__goals-diff"> -61<!----></td>
+        <td class="widget-match-standings__pts"> 22<!----></td>
+        <td class="widget-match-standings__last-five">
+          <!---->
+                <a href="/id/pertandingan/norwich-city-fc-v-tottenham-hotspur-fc/ew92044hbj98z55l8rxc6eqz8" title="Kalah" data-team-home="Norwich City FC" data-team-away="Tottenham Hotspur FC" data-index="1" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/wolverhampton-wanderers-v-norwich-city-fc/ev7jd7vewl7wd97ltkvkj74lw" title="Imbang" data-team-home="Wolverhampton Wanderers" data-team-away="Norwich City FC" data-index="2" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--draw">
+                    I
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/leicester-city-fc-v-norwich-city-fc/edl9md7qp12n8jt9wr6k5j8d0" title="Kalah" data-team-home="Leicester City FC" data-team-away="Norwich City FC" data-index="3" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/norwich-city-fc-v-west-ham-united-fc/eu5afddt4jn8hv7xk9v9w3sb8" title="Kalah" data-team-home="Norwich City FC" data-team-away="West Ham United FC" data-index="4" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!----><!---->
+                <a href="/id/pertandingan/aston-villa-fc-v-norwich-city-fc/es1d0o8v46k3wzis3s6dww8b8" title="Kalah" data-team-home="Aston Villa FC" data-team-away="Norwich City FC" data-index="5" class="widget-match-standings__match-status
+                          widget-match-standings__match-status--lose">
+                    K
+                </a>
+          <!---->
+        </td>
+</tr>
+
+    <!---->
+  <!----></tbody> </table> </div>
+</div>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<router-outlet></router-outlet>

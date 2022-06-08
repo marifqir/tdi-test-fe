@@ -1,0 +1,1149 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<!-- <style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #898787;
+    color: white;
+    font-weight: 600;
+  }
+
+  .toolbar img {
+    margin: 0 16px;
+  }
+
+  .toolbar #twitter-logo {
+    height: 40px;
+    margin: 0 8px;
+  }
+
+  .toolbar #youtube-logo {
+    height: 40px;
+    margin: 0 16px;
+  }
+
+  .toolbar #twitter-logo:hover,
+  .toolbar #youtube-logo:hover {
+    opacity: 0.8;
+  }
+
+  .content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  svg.material-icons {
+    height: 24px;
+    width: auto;
+  }
+
+  svg.material-icons:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  .card svg.material-icons path {
+    fill: #888;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .card {
+    all: unset;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    height: 40px;
+    width: 200px;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+  }
+
+  .card-container .card:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .card.card-small {
+    height: 16px;
+    width: 168px;
+  }
+
+  .card-container .card:not(.highlight-card) {
+    cursor: pointer;
+  }
+
+  .card-container .card:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  }
+
+  .card-container .card:not(.highlight-card):hover .material-icons path {
+    fill: rgb(105, 103, 103);
+  }
+
+  .card.highlight-card {
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+    border: none;
+    width: auto;
+    min-width: 30%;
+    position: relative;
+  }
+
+  .card.card.highlight-card span {
+    margin-left: 60px;
+  }
+
+  svg#rocket {
+    width: 80px;
+    position: absolute;
+    left: -10px;
+    top: -24px;
+  }
+
+  svg#rocket-smoke {
+    height: calc(100vh - 95px);
+    position: absolute;
+    top: 10px;
+    right: 180px;
+    z-index: -10;
+  }
+
+  a,
+  a:visited,
+  a:hover {
+    color: #1976d2;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #125699;
+  }
+
+  .terminal {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 6px;
+    padding-top: 45px;
+    margin-top: 8px;
+    overflow: hidden;
+    background-color: rgb(15, 15, 16);
+  }
+
+  .terminal::before {
+    content: "\2022 \2022 \2022";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: rgb(58, 58, 58);
+    color: #c2c3c4;
+    width: 100%;
+    font-size: 2rem;
+    line-height: 0;
+    padding: 14px 0;
+    text-indent: 4px;
+  }
+
+  .terminal pre {
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    color: white;
+    padding: 0 1rem 1rem;
+    margin: 0;
+  }
+
+  .circle-link {
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    margin: 8px;
+    background-color: white;
+    border: 1px solid #eeeeee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: 1s ease-out;
+  }
+
+  .circle-link:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  footer {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+  }
+
+  footer a {
+    display: flex;
+    align-items: center;
+  }
+
+  .github-star-badge {
+    color: #24292e;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    padding: 3px 10px;
+    border: 1px solid rgba(27, 31, 35, .2);
+    border-radius: 3px;
+    background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
+    margin-left: 4px;
+    font-weight: 600;
+  }
+
+  .github-star-badge:hover {
+    background-image: linear-gradient(-180deg, #f0f3f6, #e6ebf1 90%);
+    border-color: rgba(27, 31, 35, .35);
+    background-position: -.5em;
+  }
+
+  .github-star-badge .material-icons {
+    height: 16px;
+    width: 16px;
+    margin-right: 4px;
+  }
+
+  svg#clouds {
+    position: fixed;
+    bottom: -160px;
+    left: -230px;
+    z-index: -10;
+    width: 1920px;
+  }
+
+  /* Responsive Styles */
+  @media screen and (max-width: 767px) {
+
+    .card-container>*:not(.circle-link),
+    .terminal {
+      width: 100%;
+    }
+
+    .card:not(.highlight-card) {
+      height: 16px;
+      margin: 8px 0;
+    }
+
+    .card.highlight-card span {
+      margin-left: 72px;
+    }
+
+    svg#rocket-smoke {
+      right: 120px;
+      transform: rotate(-5deg);
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    svg#rocket-smoke {
+      display: none;
+      visibility: hidden;
+    }
+  }
+</style> -->
+<style>
+  html,
+  body,
+  div,
+  span,
+  applet,
+  object,
+  iframe,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  blockquote,
+  pre,
+  a,
+  abbr,
+  acronym,
+  address,
+  big,
+  cite,
+  code,
+  del,
+  dfn,
+  em,
+  font,
+  img,
+  ins,
+  kbd,
+  q,
+  s,
+  samp,
+  small,
+  strike,
+  strong,
+  sub,
+  sup,
+  tt,
+  var,
+  b,
+  u,
+  i,
+  center,
+  dl,
+  dt,
+  dd,
+  ol,
+  ul,
+  li,
+  fieldset,
+  form,
+  label,
+  legend,
+  table,
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr,
+  th,
+  td {
+      margin: 8;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      font-size: 100%;
+      vertical-align: baseline;
+      background: transparent;
+  }
+
+  .layout__content {
+      margin-top: 0;
+  }
+
+  body {
+      line-height: 1;
+
+  }
+
+  ol,
+  ul {
+      list-style: none;
+  }
+
+  blockquote,
+  q {
+      quotes: none;
+  }
+
+  blockquote:before,
+  blockquote:after,
+  q:before,
+  q:after {
+      content: "";
+      content: none;
+  }
+
+  :focus {
+      outline: 0;
+  }
+
+  ins {
+      text-decoration: none;
+  }
+
+  del {
+      text-decoration: line-through;
+  }
+
+  table {
+      border-collapse: collapse;
+      border-spacing: 0;
+  }
+
+  a {
+      text-decoration: none;
+  }
+
+  .klasemen {
+      margin: 30px 15px 25px;
+      width: 980px;
+  }
+
+  .klasemen__header--title {
+      margin: 0;
+      font-family: Gotham;
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 0.89;
+      color: #ffffff;
+  }
+
+  .klasemen__table span {
+      color: #1d3565;
+      text-transform: uppercase;
+  }
+
+  .klasemen__header {
+      margin: 8;
+      background-color: #041aaa;
+      padding: 23px 20px 21px 20px;
+      border-radius: 14px 14px 0 0;
+  }
+
+  .klasemen__table {
+      width: 100%;
+      text-align: center;
+  }
+
+  .klasemen__table thead th {
+      border-top: 1px solid #dde1eb;
+  }
+
+  .klasemen__table th {
+      padding: 10px 0;
+      background-color: #eaeef7;
+      font-family: Gotham;
+      font-size: 13px;
+      font-weight: bold;
+      line-height: 1.23;
+      color: #1d3565;
+  }
+
+  .klasemen__table th:nth-child(2) {
+      text-align: left;
+  }
+
+  .klasemen__table__row:nth-child(-n+3) {
+      background-color: #f0fff4;
+  }
+
+  .klasemen__table__row:nth-child(n+16) {
+      background-color: #fff3f3;
+  }
+
+  .klasemen__table__row:first-child td {
+      border-top: 1px solid #dde1eb;
+  }
+
+  tr.klasemen__table__row:last-child {
+      border-radius: 0 0 14px 14px;
+      border-bottom: 0;
+  }
+
+  .klasemen__table {
+      font-family: Gotham;
+      font-size: 12px;
+      line-height: 1.33;
+      text-align: center;
+      color: #1d3565;
+      border-collapse: separate;
+  }
+
+  .klasemen__table img {
+      width: 20px;
+      vertical-align: middle;
+  }
+
+  .klasemen__table td:nth-child(2) {
+      text-align: left;
+  }
+
+  .klasemen__table td {
+      padding: 15px 0 20px;
+      border-bottom: 1px solid #dde1eb;
+  }
+
+  .klasemen__table td:last-child {
+      font-weight: bold;
+  }
+
+  .klasemen__table__position--up {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='14px' height='14px' viewBox='0 0 14 14' version='1.1'%3E%3C!-- Generator: sketchtool 54.1 (76490) - https://sketchapp.com --%3E%3Ctitle%3E8B381582-CD73-4057-B702-8CDEAD63A66A%3C/title%3E%3Cdesc%3ECreated with sketchtool.%3C/desc%3E%3Cg id='Liga-1-Mobile' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='Liga-1-Klasemen-Mobile' transform='translate(-54.000000, -261.000000)'%3E%3Cg id='klasemen' transform='translate(16.000000, 144.000000)'%3E%3Cg id='1' transform='translate(24.500000, 113.000000)'%3E%3Cg id='Group' transform='translate(13.500000, 4.000000)'%3E%3Cpath d='M6.14843512,6.49920485 L10.4123798,2.95205979 C10.4552271,2.91631819 10.4819537,2.86519941 10.4866202,2.80992462 C10.4908625,2.75506544 10.4730448,2.70020625 10.4361367,2.65864626 L9.49731377,1.58556734 C9.46082992,1.54317616 9.40822528,1.51782456 9.35222681,1.51325296 C9.29750102,1.50951256 9.24022985,1.52738336 9.19738253,1.56354055 L7.11805672,3.32629188 C5.93224671,4.33156395 3.56062669,6.3421081 3.56062669,6.3421081 C3.51396129,6.38159009 3.48723475,6.43852727 3.48723475,6.49920485 C3.48723475,6.55946684 3.51396129,6.61681962 3.56062669,6.65630161 L9.19738253,11.4365316 C9.23641177,11.469364 9.28562256,11.4872347 9.33653026,11.4872347 C9.40822528,11.4822475 9.46082992,11.456896 9.49731377,11.4145048 L10.4361367,10.3414258 C10.4730448,10.2998659 10.4908625,10.2450067 10.4866202,10.1901475 C10.4819537,10.1348727 10.4556514,10.0837539 10.4123798,10.0480123 L6.14843512,6.49920485 Z' id='Fill-396' fill='%2331824A' transform='translate(6.987235, 6.500000) rotate(-270.000000) translate(-6.987235, -6.500000) '/%3E%3Crect id='Rectangle-2' fill-rule='nonzero' x='0' y='0' width='14' height='14'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .klasemen__table__position--same {
+      background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Ccircle cx='7' cy='7' r='2' fill='%23CBD6EC' fill-rule='nonzero'/%3E%3C/svg%3E%0A");
+  }
+
+  .klasemen__table__position--down {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='14px' height='14px' viewBox='0 0 14 14' version='1.1'%3E%3C!-- Generator: sketchtool 54.1 (76490) - https://sketchapp.com --%3E%3Ctitle%3EC7ED8283-B04C-4027-99F1-A2B41A620383%3C/title%3E%3Cdesc%3ECreated with sketchtool.%3C/desc%3E%3Cg id='Liga-1-Mobile' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='Liga-1-Klasemen-Mobile' transform='translate(-54.000000, -847.000000)' fill='%23C40400'%3E%3Cg id='klasemen' transform='translate(16.000000, 144.000000)'%3E%3Cg id='3-copy-2' transform='translate(21.000000, 700.000000)'%3E%3Cg id='Group-6' transform='translate(17.000000, 3.000000)'%3E%3Cpath d='M6.14843512,7.49920485 L10.4123798,3.95205979 C10.4552271,3.91631819 10.4819537,3.86519941 10.4866202,3.80992462 C10.4908625,3.75506544 10.4730448,3.70020625 10.4361367,3.65864626 L9.49731377,2.58556734 C9.46082992,2.54317616 9.40822528,2.51782456 9.35222681,2.51325296 C9.29750102,2.50951256 9.24022985,2.52738336 9.19738253,2.56354055 L7.11805672,4.32629188 C5.93224671,5.33156395 3.56062669,7.3421081 3.56062669,7.3421081 C3.51396129,7.38159009 3.48723475,7.43852727 3.48723475,7.49920485 C3.48723475,7.55946684 3.51396129,7.61681962 3.56062669,7.65630161 L9.19738253,12.4365316 C9.23641177,12.469364 9.28562256,12.4872347 9.33653026,12.4872347 C9.40822528,12.4822475 9.46082992,12.456896 9.49731377,12.4145048 L10.4361367,11.3414258 C10.4730448,11.2998659 10.4908625,11.2450067 10.4866202,11.1901475 C10.4819537,11.1348727 10.4556514,11.0837539 10.4123798,11.0480123 L6.14843512,7.49920485 Z' id='Fill-396' transform='translate(6.987235, 7.500000) rotate(-90.000000) translate(-6.987235, -7.500000) '/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .klasemen__table__position {
+      width: 14px;
+      height: 14px;
+      background-size: 14px 14px;
+      display: inline-block;
+      vertical-align: middle;
+  }
+
+  tr:last-child td:first-child {
+      border-bottom-left-radius: 10px;
+  }
+
+  tr:last-child td:last-child {
+      border-bottom-right-radius: 10px;
+  }
+
+  .klasemen__table td:first-child {
+      border-left: 1px solid #dde1eb;
+      padding-left: 20px;
+      text-align: left;
+  }
+
+  .klasemen__table td:last-child {
+      border-right: 1px solid #dde1eb;
+      padding-right: 20px;
+  }
+
+  .klasemen__table thead th:first-child {
+      border-left: 1px solid #dde1eb;
+      padding-left: 20px;
+      text-align: left;
+  }
+
+  .klasemen__table thead th:last-child {
+      border-right: 1px solid #dde1eb;
+      padding-right: 20px;
+  }
+
+  .klasemen__team {
+      display: inline-block;
+  }
+
+  /* versi desktop */
+
+  .klasemen__table thead tr {
+      position: relative;
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: 56px 277px 82px 102px 76px 87px 105px 126px auto;
+      grid-template-columns: 56px 277px 82px 102px 76px 87px 105px 126px auto;
+  }
+
+  .klasemen__table__row {
+      position: relative;
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: 56px 277px 82px 102px 76px 87px 105px 126px auto;
+      grid-template-columns: 56px 277px 82px 102px 76px 87px 105px 126px auto;
+  }
+
+  .klasemen__table td:first-child {
+      border-left: 1px solid #dde1eb;
+      padding-right: 10px;
+      padding-left: 0px;
+      text-align: right;
+  }
+
+  .related-article {
+      position: relative;
+      display: block;
+      width: 980px;
+      margin-top: 65px;
+  }
+
+  .arrow-right {
+      position: relative;
+      display: block;
+      margin-left: 10px;
+      width: 10px;
+      height: 10px;
+      background-size: 10px 10px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='12' viewBox='0 0 10 12'%3E%3Ctitle%3EFill 1%3C/title%3E%3Cpath d='M7.928 5.57L3.445 1.088a.306.306 0 0 0-.221-.096.305.305 0 0 0-.222.096l-.48.481a.305.305 0 0 0 0 .443l3.78 3.781-3.78 3.782a.305.305 0 0 0-.097.222c0 .083.032.156.096.221l.481.48a.304.304 0 0 0 .443 0l4.483-4.483a.304.304 0 0 0 0-.443z' fill='%23e04b2d' fill-rule='evenodd'/%3E%3C/svg%3E")
+  }
+
+  .related-article__header {
+      position: relative;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      margin-bottom: 15px;
+  }
+
+  .related-article__title {
+      font-family: Gotham;
+      font-size: 18px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #000000 !important;
+  }
+
+  .related-article__more {
+      font-family: PT Sans;
+      font-size: 12px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: right;
+      color: rgba(29, 53, 101, 0.4);
+      position: relative;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+  }
+
+  .related-article__content {
+      position: relative;
+      display: block;
+  }
+
+  .related-content {
+      position: relative;
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: 230px 20px 230px 20px 230px 20px 230px;
+      grid-template-columns: 230px 230px 230px 230px;
+      grid-column-gap: 20px;
+      grid-row-gap: 20px;
+  }
+
+  .related-content__figure {
+      margin: 0px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 6px;
+      height: 130px;
+  }
+
+  .related-content__time.timeago {
+      display: none;
+  }
+
+  .related-content__category {
+      display: none;
+  }
+
+  .related-content__description {
+      display: none;
+  }
+
+  .related-content__content {
+      position: relative;
+      display: block;
+      width: 100%;
+  }
+
+  span.related-content__title {
+      position: relative;
+      display: block;
+      width: 100%;
+      margin-top: 5px;
+      font-family: Gotham;
+      font-size: 13px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.54;
+      letter-spacing: normal;
+  }
+
+  .related-content__item:hover span.related-content__title {
+      color: #FF5722;
+  }
+
+  .index-articles__container {
+      position: relative;
+      display: block;
+      width: 138px;
+      height: 44px;
+      margin: 0 auto;
+      margin-top: 55px;
+  }
+
+  .index-articles__body span {
+      font-family: Gotham;
+      font-size: 13px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #e04b2d;
+  }
+
+  .index-articles__body {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      border-radius: 3px;
+      border: solid 1px #ff5722;
+      background-color: #ffffff;
+      color:#ff5722;
+  }
+
+  .index-articles__body:hover {
+      background-color: #ff5722;
+  }
+
+  .index-articles__body:hover span {
+      color: white;
+  }
+
+  .channel-ad.channel-ad_ad-lb{
+      margin-top: 30px;
+  }
+</style>
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  <img width="40" alt="Liga 1"
+    src="https://1.bp.blogspot.com/-PT-9zTZA9Nk/YYZOFME_QfI/AAAAAAAADnU/2bfV0awl9bkFbOJnDOZ9Y6F_fHmuS4IiACNcBGAsYHQ/s2048/BRI%2BLiga%2B1%2BIndonesia.png" />
+  <span >KLASEMEN LIGA 1</span>
+
+
+</div>
+
+<div class="content" role="main">
+
+  <!-- Highlight Card -->
+  <div class="klasemen">
+    <div class="klasemen__header">
+        <h2 class="klasemen__header--title">KLASEMEN LIGA INDONESIA 2021</h2>
+    </div>
+    <table class="klasemen__table">
+        <thead>
+            <tr>
+                <th>Pos</th>
+                <th>Klub</th>
+                <th>Main</th>
+                <th>Menang</th>
+                <th>Seri</th>
+                <th>Kalah</th>
+                <th>Cetak Goal</th>
+                <th>Kemasukan</th>
+                <th>Poin</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let_user of klasemen; let i=index">
+                    <td>
+                        <span>{{ i+1 }}</span>
+                        <i class="klasemen__table__position klasemen__table__position--same"></i>
+                    </td>
+                    <td>
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/Bali_United_logo.svg/800px-Bali_United_logo.svg.png" alt="Bali United" >
+                        <div class="klasemen__team">
+
+                            <span>{{ klasemen.tim }}</span>
+                        </div>
+                    </td>
+                    <td>{{ klasemen.pertandingan }}</td>
+                    <td>23</td>
+                    <td>6</td>
+                    <td>5</td>
+                    <td>57</td>
+                    <td>26</td>
+                    <td>75</td>
+
+                </tr><tr class="klasemen__table__row">
+                    <!-- <td>
+                        <span>2</span>
+                        <i class="klasemen__table__position klasemen__table__position--same"></i>
+                    </td>
+                    <td>
+                        <img src="https://cdns.klimg.com/bola.net/library/upload/23/2020/02/persib_b175e6f.png" alt="Persib Bandung">
+                        <div class="klasemen__team">
+                            <span>Persib Bandung</span>
+                        </div>
+                    </td>
+                    <td>34</td>
+                    <td>20</td>
+                    <td>9</td>
+                    <td>5</td>
+                    <td>48</td>
+                    <td>22</td>
+                    <td>69</td>
+
+                </tr><tr class="klasemen__table__row">
+                    <td>
+                        <span>3</span>
+                        <i class="klasemen__table__position klasemen__table__position--same"></i>
+                    </td>
+                    <td>
+                        <img src="https://cdns.klimg.com/bola.net/library/upload/23/2020/02/bhayangkara_b180490.png" alt="Bhayangkara FC">
+                        <div class="klasemen__team">
+                            <span>Bhayangkara FC</span>
+                        </div>
+                    </td>
+                    <td>34</td>
+                    <td>19</td>
+                    <td>9</td>
+                    <td>6</td>
+                    <td>48</td>
+                    <td>27</td>
+                    <td>66</td>
+
+                </tr><tr class="klasemen__table__row">
+                    <td>
+                        <span>4</span>
+                        <i class="klasemen__table__position klasemen__table__position--same"></i>
+                    </td>
+                    <td>
+                        <img src="https://cdns.klimg.com/bola.net/library/upload/23/2020/02/arema_bdc6643.png" alt="Arema FC">
+                        <div class="klasemen__team">
+                            <span>Arema FC</span>
+                        </div>
+                    </td>
+                    <td>34</td>
+                    <td>18</td>
+                    <td>11</td>
+                    <td>5</td>
+                    <td>44</td>
+                    <td>25</td>
+                    <td>65</td>
+
+                </tr><tr class="klasemen__table__row">
+                    <td>
+                        <span>5</span>
+                        <i class="klasemen__table__position klasemen__table__position--same"></i>
+                    </td>
+                    <td>
+                        <img src="https://cdns.klimg.com/bola.net/library/upload/23/2020/02/persebaya_b184ad7.png" alt="Persebaya Surabaya">
+                        <div class="klasemen__team">
+                            <span>Persebaya Surabaya</span>
+                        </div>
+                    </td>
+                    <td>34</td>
+                    <td>18</td>
+                    <td>9</td>
+                    <td>7</td>
+                    <td>56</td>
+                    <td>35</td>
+                    <td>63</td>
+
+                </tr><tr class="klasemen__table__row">
+                    <td>
+                        <span>6</span>
+                        <i class="klasemen__table__position klasemen__table__position--same"></i>
+                    </td>
+                    <td>
+                        <img src="https://cdns.klimg.com/bola.net/library/upload/23/2020/02/borneo_b182b52.png" alt="Borneo FC">
+                        <div class="klasemen__team">
+                            <span>Borneo FC</span>
+                        </div>
+                    </td>
+                    <td>34</td>
+                    <td>14</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>43</td>
+                    <td>35</td>
+                    <td>52</td>
+
+                </tr><tr class="klasemen__table__row">
+                    <td>
+                        <span>7</span>
+                        <i class="klasemen__table__position klasemen__table__position--up"></i>
+                    </td>
+                    <td>
+                        <img src="https://cdns.klimg.com/bola.net/library/upload/23/2020/02/psis_babea4d.png" alt="PSIS Semarang">
+                        <div class="klasemen__team">
+                            <span>PSIS Semarang</span>
+                        </div>
+                    </td>
+                    <td>34</td>
+                    <td>11</td>
+                    <td>13</td>
+                    <td>10</td>
+                    <td>35</td>
+                    <td>34</td>
+                    <td>46</td>
+
+                </tr><tr class="klasemen__table__row">
+                    <td>
+                        <span>8</span>
+                        <i class="klasemen__table__position klasemen__table__position--down"></i>
+                    </td>
+                    <td>
+                        <img src="https://cdn-production-assets-kly.akamaized.net/assets/images/blank.png" alt="Persija">
+                        <div class="klasemen__team">
+                            <span>Persija</span>
+                        </div>
+                    </td>
+                    <td>34</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>11</td>
+                    <td>43</td>
+                    <td>40</td>
+                    <td>45</td>
+
+                </tr><tr class="klasemen__table__row">
+                    <td>
+                        <span>9</span>
+                        <i class="klasemen__table__position klasemen__table__position--up"></i>
+                    </td>
+                    <td>
+                        <img src="https://cdns.klimg.com/bola.net/library/upload/23/2020/02/madura-united_b184730.png" alt="Madura United">
+                        <div class="klasemen__team">
+                            <span>Madura United</span>
+                        </div>
+                    </td>
+                    <td>34</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>13</td>
+                    <td>45</td>
+                    <td>43</td>
+                    <td>41</td>
+
+                </tr><tr class="klasemen__table__row">
+                    <td>
+                        <span>10</span>
+                        <i class="klasemen__table__position klasemen__table__position--up"></i>
+                    </td>
+                    <td>
+                        <img src="https://cdns.klimg.com/bola.net/library/upload/23/2020/02/ps-tira_b910461.png" alt="PS TIRA">
+                        <div class="klasemen__team">
+                            <span>PS TIRA</span>
+                        </div>
+                    </td>
+                    <td>34</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>14</td>
+                    <td>49</td>
+                    <td>48</td>
+                    <td>40</td>
+
+                </tr><tr class="klasemen__table__row">
+                    <td>
+                        <span>11</span>
+                        <i class="klasemen__table__position klasemen__table__position--same"></i>
+                    </td>
+                    <td>
+                        <img src="https://cdns.klimg.com/bola.net/library/upload/23/2020/02/persik_b857ec3.png" alt="Persik Kediri">
+                        <div class="klasemen__team">
+                            <span>Persik Kediri</span>
+                        </div>
+                    </td>
+                    <td>34</td>
+                    <td>9</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>33</td>
+                    <td>39</td>
+                    <td>39</td>
+
+                </tr><tr class="klasemen__table__row">
+                    <td>
+                        <span>12</span>
+                        <i class="klasemen__table__position klasemen__table__position--down"></i>
+                    </td>
+                    <td>
+                        <img src="https://cdns.klimg.com/bola.net/library/upload/23/2020/02/persita_bb0e20d.png" alt="Persita">
+                        <div class="klasemen__team">
+                            <span>Persita</span>
+                        </div>
+                    </td>
+                    <td>34</td>
+                    <td>9</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>39</td>
+                    <td>49</td>
+                    <td>39</td>
+
+                </tr><tr class="klasemen__table__row">
+                    <td>
+                        <span>13</span>
+                        <i class="klasemen__table__position klasemen__table__position--same"></i>
+                    </td>
+                    <td>
+                        <img src="https://cdns.klimg.com/bola.net/library/upload/23/2020/02/pss-sleman_babaf81.png" alt="PSS Sleman">
+                        <div class="klasemen__team">
+                            <span>PSS Sleman</span>
+                        </div>
+                    </td>
+                    <td>34</td>
+                    <td>10</td>
+                    <td>9</td>
+                    <td>15</td>
+                    <td>40</td>
+                    <td>48</td>
+                    <td>39</td>
+
+                </tr><tr class="klasemen__table__row">
+                    <td>
+                        <span>14</span>
+                        <i class="klasemen__table__position klasemen__table__position--up"></i>
+                    </td>
+                    <td>
+                        <img src="https://cdns.klimg.com/bola.net/library/upload/23/2020/02/psm-makasar_bbe9415.png" alt="PSM Makassar">
+                        <div class="klasemen__team">
+                            <span>PSM Makassar</span>
+                        </div>
+                    </td>
+                    <td>34</td>
+                    <td>8</td>
+                    <td>14</td>
+                    <td>12</td>
+                    <td>31</td>
+                    <td>41</td>
+                    <td>38</td>
+
+                </tr><tr class="klasemen__table__row">
+                    <td>
+                        <span>15</span>
+                        <i class="klasemen__table__position klasemen__table__position--down"></i>
+                    </td>
+                    <td>
+                        <img src="https://cdns.klimg.com/bola.net/library/upload/23/2020/02/barito_ba877b1.png" alt="Barito Putera">
+                        <div class="klasemen__team">
+                            <span>Barito Putera</span>
+                        </div>
+                    </td>
+                    <td>34</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>16</td>
+                    <td>41</td>
+                    <td>49</td>
+                    <td>36</td>
+
+                </tr><tr class="klasemen__table__row">
+                    <td>
+                        <span>16</span>
+                        <i class="klasemen__table__position klasemen__table__position--same"></i>
+                    </td>
+                    <td>
+                        <img src="https://cdns.klimg.com/bola.net/library/upload/23/2020/02/persipura_b87faf1.png" alt="Persipura Jayapura">
+                        <div class="klasemen__team">
+                            <span>Persipura Jayapura</span>
+                        </div>
+                    </td>
+                    <td>34</td>
+                    <td>10</td>
+                    <td>9</td>
+                    <td>15</td>
+                    <td>36</td>
+                    <td>47</td>
+                    <td>36</td>
+
+                </tr><tr class="klasemen__table__row">
+                    <td>
+                        <span>17</span>
+                        <i class="klasemen__table__position klasemen__table__position--same"></i>
+                    </td>
+                    <td>
+                        <img src="https://cdns.klimg.com/bola.net/library/upload/23/2020/02/persela_b17295b.png" alt="Persela Lamongan">
+                        <div class="klasemen__team">
+                            <span>Persela Lamongan</span>
+                        </div>
+                    </td>
+                    <td>34</td>
+                    <td>3</td>
+                    <td>12</td>
+                    <td>19</td>
+                    <td>32</td>
+                    <td>61</td>
+                    <td>21</td>
+
+                </tr><tr class="klasemen__table__row">
+                    <td>
+                        <span>18</span>
+                        <i class="klasemen__table__position klasemen__table__position--same"></i>
+                    </td>
+                    <td>
+                        <img src="https://cdns.klimg.com/bola.net/library/upload/23/2020/02/persiraja_bac2b3c.png" alt="Persiraja Banda Aceh">
+                        <div class="klasemen__team">
+                            <span>Persiraja Banda Aceh</span>
+                        </div>
+                    </td>
+                    <td>34</td>
+                    <td>2</td>
+                    <td>7</td>
+                    <td>25</td>
+                    <td>18</td>
+                    <td>69</td>
+                    <td>13</td> -->
+
+                </tr></tbody>
+    </table>
+</div>
+</div>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<!-- <router-outlet></router-outlet> -->

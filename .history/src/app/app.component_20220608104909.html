@@ -1,0 +1,1579 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #898787;
+    color: white;
+    font-weight: 600;
+  }
+
+  .toolbar img {
+    margin: 0 16px;
+  }
+
+  .toolbar #twitter-logo {
+    height: 40px;
+    margin: 0 8px;
+  }
+
+  .toolbar #youtube-logo {
+    height: 40px;
+    margin: 0 16px;
+  }
+
+  .toolbar #twitter-logo:hover,
+  .toolbar #youtube-logo:hover {
+    opacity: 0.8;
+  }
+
+  .content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  svg.material-icons {
+    height: 24px;
+    width: auto;
+  }
+
+  svg.material-icons:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  .card svg.material-icons path {
+    fill: #888;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .card {
+    all: unset;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    height: 40px;
+    width: 200px;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+  }
+
+  .card-container .card:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .card.card-small {
+    height: 16px;
+    width: 168px;
+  }
+
+  .card-container .card:not(.highlight-card) {
+    cursor: pointer;
+  }
+
+  .card-container .card:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  }
+
+  .card-container .card:not(.highlight-card):hover .material-icons path {
+    fill: rgb(105, 103, 103);
+  }
+
+  .card.highlight-card {
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+    border: none;
+    width: auto;
+    min-width: 30%;
+    position: relative;
+  }
+
+  .card.card.highlight-card span {
+    margin-left: 60px;
+  }
+
+  svg#rocket {
+    width: 80px;
+    position: absolute;
+    left: -10px;
+    top: -24px;
+  }
+
+  svg#rocket-smoke {
+    height: calc(100vh - 95px);
+    position: absolute;
+    top: 10px;
+    right: 180px;
+    z-index: -10;
+  }
+
+  a,
+  a:visited,
+  a:hover {
+    color: #1976d2;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #125699;
+  }
+
+  .terminal {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 6px;
+    padding-top: 45px;
+    margin-top: 8px;
+    overflow: hidden;
+    background-color: rgb(15, 15, 16);
+  }
+
+  .terminal::before {
+    content: "\2022 \2022 \2022";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: rgb(58, 58, 58);
+    color: #c2c3c4;
+    width: 100%;
+    font-size: 2rem;
+    line-height: 0;
+    padding: 14px 0;
+    text-indent: 4px;
+  }
+
+  .terminal pre {
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    color: white;
+    padding: 0 1rem 1rem;
+    margin: 0;
+  }
+
+  .circle-link {
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    margin: 8px;
+    background-color: white;
+    border: 1px solid #eeeeee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: 1s ease-out;
+  }
+
+  .circle-link:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  footer {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+  }
+
+  footer a {
+    display: flex;
+    align-items: center;
+  }
+
+  .github-star-badge {
+    color: #24292e;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    padding: 3px 10px;
+    border: 1px solid rgba(27, 31, 35, .2);
+    border-radius: 3px;
+    background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
+    margin-left: 4px;
+    font-weight: 600;
+  }
+
+  .github-star-badge:hover {
+    background-image: linear-gradient(-180deg, #f0f3f6, #e6ebf1 90%);
+    border-color: rgba(27, 31, 35, .35);
+    background-position: -.5em;
+  }
+
+  .github-star-badge .material-icons {
+    height: 16px;
+    width: 16px;
+    margin-right: 4px;
+  }
+
+  svg#clouds {
+    position: fixed;
+    bottom: -160px;
+    left: -230px;
+    z-index: -10;
+    width: 1920px;
+  }
+
+  /* Responsive Styles */
+  @media screen and (max-width: 767px) {
+
+    .card-container>*:not(.circle-link),
+    .terminal {
+      width: 100%;
+    }
+
+    .card:not(.highlight-card) {
+      height: 16px;
+      margin: 8px 0;
+    }
+
+    .card.highlight-card span {
+      margin-left: 72px;
+    }
+
+    svg#rocket-smoke {
+      right: 120px;
+      transform: rotate(-5deg);
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    svg#rocket-smoke {
+      display: none;
+      visibility: hidden;
+    }
+  }
+</style>
+
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  <img width="40" alt="Liga 1"
+    src="https://1.bp.blogspot.com/-PT-9zTZA9Nk/YYZOFME_QfI/AAAAAAAADnU/2bfV0awl9bkFbOJnDOZ9Y6F_fHmuS4IiACNcBGAsYHQ/s2048/BRI%2BLiga%2B1%2BIndonesia.png" />
+  <span>KLASEMEN LIGA 1</span>
+  <div class="spacer"></div>
+  <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
+    <svg id="twitter-logo" height="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+      <rect width="400" height="400" fill="none" />
+      <path
+        d="M153.62,301.59c94.34,0,145.94-78.16,145.94-145.94,0-2.22,0-4.43-.15-6.63A104.36,104.36,0,0,0,325,122.47a102.38,102.38,0,0,1-29.46,8.07,51.47,51.47,0,0,0,22.55-28.37,102.79,102.79,0,0,1-32.57,12.45,51.34,51.34,0,0,0-87.41,46.78A145.62,145.62,0,0,1,92.4,107.81a51.33,51.33,0,0,0,15.88,68.47A50.91,50.91,0,0,1,85,169.86c0,.21,0,.43,0,.65a51.31,51.31,0,0,0,41.15,50.28,51.21,51.21,0,0,1-23.16.88,51.35,51.35,0,0,0,47.92,35.62,102.92,102.92,0,0,1-63.7,22A104.41,104.41,0,0,1,75,278.55a145.21,145.21,0,0,0,78.62,23"
+        fill="#fff" />
+    </svg>
+  </a>
+  <a aria-label="Angular on YouTube" target="_blank" rel="noopener" href="https://youtube.com/angular" title="YouTube">
+    <svg id="youtube-logo" height="24" width="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24" fill="#fff">
+      <path d="M0 0h24v24H0V0z" fill="none" />
+      <path
+        d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z" />
+    </svg>
+  </a>
+</div>
+
+<div class="content" role="main">
+
+  <!-- Highlight Card -->
+  <div>
+    <table class="Jzru1c">
+      <tbody>
+        <tr>
+          <th class="tuzU3e w2Mymf nwxKge" aria-hidden="true"></th>
+          <th class="fbf28d wxNiFd tuzU3e ey2qkf" role="columnheader" scope="col">
+            <div class="YCyuEf">Rank</div>
+          </th>
+          <th class="ey2qkf tuzU3e QI3dEb K2ENGc wxNiFd GsYI2e CuWfJb eIMmHd lq7Dvb" role="columnheader" scope="col">
+            <div class="d8zVje">Klub</div>
+          </th>
+          <th class="tuzU3e xkW0Cc eIMmHd vZXnld" style="width:25px;min-width:25px" role="columnheader" scope="col">
+            <div><span aria-hidden="true">M</span>
+              <span class="YCyuEf">Pertandingan yang dimainkan</span>
+            </div>
+          </th>
+          <th class="tuzU3e xkW0Cc eIMmHd vZXnld" style="width:25px;min-width:25px" role="columnheader" scope="col">
+            <div><span aria-hidden="true">M</span>
+              <span class="YCyuEf">Menang</span>
+            </div>
+          </th>
+          <th class="tuzU3e xkW0Cc eIMmHd vZXnld kRLtzc" style="width:25px;min-width:25px" role="columnheader"
+            scope="col">
+            <div><span aria-hidden="true">S</span>
+              <span class="YCyuEf">Seri</span>
+            </div>
+          </th>
+          <th class="tuzU3e xkW0Cc eIMmHd vZXnld kRLtzc" style="width:25px;min-width:25px" role="columnheader"
+            scope="col">
+            <div><span aria-hidden="true">K</span>
+              <span class="YCyuEf">Kalah</span>
+            </div>
+          </th>
+          <th class="tuzU3e xkW0Cc eIMmHd vZXnld kRLtzc" style="width:25px;min-width:25px" role="columnheader"
+            scope="col">
+            <div><span aria-hidden="true">GM</span>
+              <span class="YCyuEf">Gol dicetak</span>
+            </div>
+          </th>
+          <th class="tuzU3e xkW0Cc eIMmHd vZXnld kRLtzc" style="width:25px;min-width:25px" role="columnheader"
+            scope="col">
+            <div><span aria-hidden="true">GA</span>
+              <span class="YCyuEf">Gol melawan</span>
+            </div>
+          </th>
+          <th class="tuzU3e xkW0Cc eIMmHd vZXnld" style="width:25px;min-width:25px" role="columnheader" scope="col">
+            <div><span aria-hidden="true">SG</span>
+              <span class="YCyuEf">Selisih gol</span>
+            </div>
+          </th>
+          <th class="tuzU3e xkW0Cc eIMmHd vZXnld" style="width:25px;min-width:25px" role="columnheader" scope="col">
+            <div><span aria-hidden="true">Poin</span>
+              <span class="YCyuEf">Poin</span>
+            </div>
+          </th>
+          <th class="tuzU3e xkW0Cc eIMmHd vZXnld kRLtzc" style="width:100px;min-width:100px" role="columnheader"
+            scope="col">
+            <div><span aria-hidden="true">5 Pertandingan Terakhir</span><span class="YCyuEf">5 pertandingan
+                terakhir</span></div>
+          </th>
+        </tr>
+        <tr jscontroller="cvgK0e" aria-label="Bali United" class="imso-loa imso-hov" data-league-mid=""
+          data-should-expand-to-team-fullpage="true" data-sport="2" data-team-fullpage-color-for-transition="#fd8b00"
+          data-team-fullpage-title-for-transition="" data-team-mid="/m/04y9jwq" tabindex="0"
+          jsaction="rcuQ6b:npT2md;hOPlV">
+          <td class="e9fBA nwxKge snctkc CuWfJb xL0E7c" aria-hidden="true"></td>
+          <td class="fbf28d e9fBA wxNiFd B1pJhb AXYSPc">
+            <div class="Rqwdve RQCbNe" style="border-bottom-color:#fff">
+              <div class="Xne9qe" style="background-color:#4285F4"><span class="YCyuEf">Babak penyisihan grup Piala
+                  AFC</span></div>
+            </div>
+            <div class="gDo0uc tgaaSb xL0E7c snctkc">
+              <div class="iU5t0d">1</div>
+            </div>
+            <div class="tgaaSb xL0E7c snctkc" aria-hidden="true"><span class="iU5t0d b8Oacc fz3Rib"><img
+                  class="imso_btl__mh-logo" alt=""
+                  src="//ssl.gstatic.com/onebox/media/sports/logos/6jWWRbyJ1K3tu48xCP33Gg_48x48.png"
+                  style="width:24px;height:24px"></span></div>
+            <div class="tgaaSb xL0E7c snctkc" style="width:12px"></div>
+          </td>
+          <td class="tcwpB e9fBA fbf28d snctkc B1pJhb fI7lFd n1i1Xc xL0E7c">
+            <div class="e6E1Yd">
+              <div class="imso-hide-overflow GXDoWd C1gYkd" role="link"><span class="ellipsisize hsKSJe">Bali
+                  United</span></div>
+            </div>
+          </td>
+          <td class="e9fBA xkW0Cc snctkc xL0E7c">34</td>
+          <td class="e9fBA xkW0Cc snctkc xL0E7c">23</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc xL0E7c">6</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc xL0E7c">5</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc xL0E7c">57</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc xL0E7c">26</td>
+          <td class="e9fBA xkW0Cc snctkc xL0E7c">31</td>
+          <td class="e9fBA xkW0Cc snctkc xL0E7c">75</td>
+          <td class="gwqH4e e9fBA xkW0Cc snctkc kRLtzc xL0E7c" role="cell" tabindex="0" jsaction="ipUFbd">
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Menang</div>
+            <div jsname="U4QKYc" class="t0t45c II8W2d" jscontroller="imurKb" data-as="5" data-ca="" data-dir="ltr"
+              data-position-left="6" data-tooltip-width="90" jsaction="kHBd4e:ZYIfFd">
+              <div jsname="haAclf" class="qRlaod" style="top:31px;left:-49px"><span jsname="fmcmS" class="Y86vEf zHcLxe"
+                  style="background-color:#4885ed;top:0;width:90px" aria-hidden="true">Pertandingan terbaru</span>
+                <div jsname="hFsbo" class="npJGSb" style="border-bottom-color:#4885ed;bottom:0;left:50px"></div>
+              </div>
+              <div class="mzZLbb" aria-hidden="true">
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA w2Mymf" aria-hidden="true"></td>
+        </tr>
+        <tr jscontroller="cvgK0e" aria-label="Persib Bandung" class="imso-loa imso-hov" data-league-mid=""
+          data-should-expand-to-team-fullpage="true" data-sport="2" data-team-fullpage-color-for-transition="#0000b7"
+          data-team-fullpage-title-for-transition="" data-team-mid="/m/0dh8k9" tabindex="0"
+          jsaction="rcuQ6b:npT2md;hOPlV">
+          <td class="e9fBA nwxKge snctkc CuWfJb" aria-hidden="true"></td>
+          <td class="fbf28d e9fBA wxNiFd B1pJhb AXYSPc">
+            <div class="Rqwdve RQCbNe" style="border-bottom-color:#fff">
+              <div class="Xne9qe"><span class="YCyuEf"></span></div>
+            </div>
+            <div class="gDo0uc tgaaSb snctkc">
+              <div class="iU5t0d">2</div>
+            </div>
+            <div class="tgaaSb snctkc" aria-hidden="true"><span class="iU5t0d b8Oacc fz3Rib"><img
+                  class="imso_btl__mh-logo" alt=""
+                  src="//ssl.gstatic.com/onebox/media/sports/logos/RpZprl39y1opAvgF7NhPVg_48x48.png"
+                  style="width:24px;height:24px"></span></div>
+            <div class="tgaaSb snctkc" style="width:12px"></div>
+          </td>
+          <td class="tcwpB e9fBA fbf28d snctkc B1pJhb fI7lFd n1i1Xc">
+            <div class="e6E1Yd">
+              <div class="imso-hide-overflow GXDoWd C1gYkd" role="link"><span class="ellipsisize hsKSJe">Persib
+                  Bandung</span></div>
+            </div>
+          </td>
+          <td class="e9fBA xkW0Cc snctkc">34</td>
+          <td class="e9fBA xkW0Cc snctkc">20</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">9</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">5</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">48</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">22</td>
+          <td class="e9fBA xkW0Cc snctkc">26</td>
+          <td class="e9fBA xkW0Cc snctkc">69</td>
+          <td class="gwqH4e e9fBA xkW0Cc snctkc kRLtzc" role="cell" tabindex="0" jsaction="ipUFbd">
+            <div class="YCyuEf">Seri</div>
+            <div class="YCyuEf">Seri</div>
+            <div class="YCyuEf">Seri</div>
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Menang</div>
+            <div jsname="U4QKYc" class="t0t45c II8W2d" jscontroller="imurKb" data-as="5" data-ca="" data-dir="ltr"
+              data-position-left="6" data-tooltip-width="90" jsaction="kHBd4e:ZYIfFd">
+              <div jsname="haAclf" class="qRlaod" style="top:9px;left:-49px"><span jsname="fmcmS" class="Y86vEf zHcLxe"
+                  style="background-color:#4885ed;bottom:0;width:90px" aria-hidden="true">Pertandingan terbaru</span>
+                <div jsname="hFsbo" class="npJGSb" style="border-top-color:#4885ed;top:0;left:50px"></div>
+              </div>
+              <div class="mzZLbb" aria-hidden="true">
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA w2Mymf" aria-hidden="true"></td>
+        </tr>
+        <tr jscontroller="cvgK0e" aria-label="Bhayangkara FC" class="imso-loa imso-hov" data-league-mid=""
+          data-should-expand-to-team-fullpage="true" data-sport="2" data-team-fullpage-color-for-transition="#212121"
+          data-team-fullpage-title-for-transition="" data-team-mid="/g/11cn6flkrz" tabindex="0"
+          jsaction="rcuQ6b:npT2md;hOPlV">
+          <td class="e9fBA nwxKge snctkc CuWfJb" aria-hidden="true"></td>
+          <td class="fbf28d e9fBA wxNiFd B1pJhb AXYSPc">
+            <div class="Rqwdve RQCbNe" style="border-bottom-color:#fff">
+              <div class="Xne9qe"><span class="YCyuEf"></span></div>
+            </div>
+            <div class="gDo0uc tgaaSb snctkc">
+              <div class="iU5t0d">3</div>
+            </div>
+            <div class="tgaaSb snctkc" aria-hidden="true"><span class="iU5t0d b8Oacc fz3Rib"><img
+                  class="imso_btl__mh-logo" alt=""
+                  src="//ssl.gstatic.com/onebox/media/sports/logos/MAE1GLu0Qav2UWNHY6VyQQ_48x48.png"
+                  style="width:24px;height:24px"></span></div>
+            <div class="tgaaSb snctkc" style="width:12px"></div>
+          </td>
+          <td class="tcwpB e9fBA fbf28d snctkc B1pJhb fI7lFd n1i1Xc">
+            <div class="e6E1Yd">
+              <div class="imso-hide-overflow GXDoWd C1gYkd" role="link"><span class="ellipsisize hsKSJe">Bhayangkara
+                  FC</span></div>
+            </div>
+          </td>
+          <td class="e9fBA xkW0Cc snctkc">34</td>
+          <td class="e9fBA xkW0Cc snctkc">19</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">9</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">6</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">48</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">27</td>
+          <td class="e9fBA xkW0Cc snctkc">21</td>
+          <td class="e9fBA xkW0Cc snctkc">66</td>
+          <td class="gwqH4e e9fBA xkW0Cc snctkc kRLtzc" role="cell" tabindex="0" jsaction="ipUFbd">
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Seri</div>
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Seri</div>
+            <div jsname="U4QKYc" class="t0t45c II8W2d" jscontroller="imurKb" data-as="5" data-ca="" data-dir="ltr"
+              data-position-left="6" data-tooltip-width="90" jsaction="kHBd4e:ZYIfFd">
+              <div jsname="haAclf" class="qRlaod" style="top:9px;left:-49px"><span jsname="fmcmS" class="Y86vEf zHcLxe"
+                  style="background-color:#4885ed;bottom:0;width:90px" aria-hidden="true">Pertandingan terbaru</span>
+                <div jsname="hFsbo" class="npJGSb" style="border-top-color:#4885ed;top:0;left:50px"></div>
+              </div>
+              <div class="mzZLbb" aria-hidden="true">
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA w2Mymf" aria-hidden="true"></td>
+        </tr>
+        <tr jscontroller="cvgK0e" aria-label="Arema FC" class="imso-loa imso-hov" data-league-mid=""
+          data-should-expand-to-team-fullpage="true" data-sport="2" data-team-fullpage-color-for-transition="#0101e3"
+          data-team-fullpage-title-for-transition="" data-team-mid="/m/0dbq9h" tabindex="0"
+          jsaction="rcuQ6b:npT2md;hOPlV">
+          <td class="e9fBA nwxKge snctkc CuWfJb" aria-hidden="true"></td>
+          <td class="fbf28d e9fBA wxNiFd B1pJhb AXYSPc">
+            <div class="Rqwdve RQCbNe" style="border-bottom-color:#fff">
+              <div class="Xne9qe"><span class="YCyuEf"></span></div>
+            </div>
+            <div class="gDo0uc tgaaSb snctkc">
+              <div class="iU5t0d">4</div>
+            </div>
+            <div class="tgaaSb snctkc" aria-hidden="true"><span class="iU5t0d b8Oacc fz3Rib"><img
+                  class="imso_btl__mh-logo" alt=""
+                  src="//ssl.gstatic.com/onebox/media/sports/logos/gF6obPRsLgF7Oj3wEl7vtQ_48x48.png"
+                  style="width:24px;height:24px"></span></div>
+            <div class="tgaaSb snctkc" style="width:12px"></div>
+          </td>
+          <td class="tcwpB e9fBA fbf28d snctkc B1pJhb fI7lFd n1i1Xc">
+            <div class="e6E1Yd">
+              <div class="imso-hide-overflow GXDoWd C1gYkd" role="link"><span class="ellipsisize hsKSJe">Arema FC</span>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA xkW0Cc snctkc">34</td>
+          <td class="e9fBA xkW0Cc snctkc">18</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">11</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">5</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">44</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">25</td>
+          <td class="e9fBA xkW0Cc snctkc">19</td>
+          <td class="e9fBA xkW0Cc snctkc">65</td>
+          <td class="gwqH4e e9fBA xkW0Cc snctkc kRLtzc" role="cell" tabindex="0" jsaction="ipUFbd">
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Seri</div>
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Kalah</div>
+            <div jsname="U4QKYc" class="t0t45c II8W2d" jscontroller="imurKb" data-as="5" data-ca="" data-dir="ltr"
+              data-position-left="6" data-tooltip-width="90" jsaction="kHBd4e:ZYIfFd">
+              <div jsname="haAclf" class="qRlaod" style="top:9px;left:-49px"><span jsname="fmcmS" class="Y86vEf zHcLxe"
+                  style="background-color:#4885ed;bottom:0;width:90px" aria-hidden="true">Pertandingan terbaru</span>
+                <div jsname="hFsbo" class="npJGSb" style="border-top-color:#4885ed;top:0;left:50px"></div>
+              </div>
+              <div class="mzZLbb" aria-hidden="true">
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA w2Mymf" aria-hidden="true"></td>
+        </tr>
+        <tr jscontroller="cvgK0e" aria-label="Persebaya" class="imso-loa imso-hov" data-league-mid=""
+          data-should-expand-to-team-fullpage="true" data-sport="2" data-team-fullpage-color-for-transition="#027f00"
+          data-team-fullpage-title-for-transition="" data-team-mid="/m/0gsfyq" tabindex="0"
+          jsaction="rcuQ6b:npT2md;hOPlV">
+          <td class="e9fBA nwxKge snctkc CuWfJb" aria-hidden="true"></td>
+          <td class="fbf28d e9fBA wxNiFd B1pJhb AXYSPc">
+            <div class="Rqwdve RQCbNe" style="border-bottom-color:#fff">
+              <div class="Xne9qe"><span class="YCyuEf"></span></div>
+            </div>
+            <div class="gDo0uc tgaaSb snctkc">
+              <div class="iU5t0d">5</div>
+            </div>
+            <div class="tgaaSb snctkc" aria-hidden="true"><span class="iU5t0d b8Oacc fz3Rib"><img
+                  class="imso_btl__mh-logo" alt=""
+                  src="//ssl.gstatic.com/onebox/media/sports/logos/sknmRTJdv0tHxLHy-H1L8Q_48x48.png"
+                  style="width:24px;height:24px"></span></div>
+            <div class="tgaaSb snctkc" style="width:12px"></div>
+          </td>
+          <td class="tcwpB e9fBA fbf28d snctkc B1pJhb fI7lFd n1i1Xc">
+            <div class="e6E1Yd">
+              <div class="imso-hide-overflow GXDoWd C1gYkd" role="link"><span
+                  class="ellipsisize hsKSJe">Persebaya</span></div>
+            </div>
+          </td>
+          <td class="e9fBA xkW0Cc snctkc">34</td>
+          <td class="e9fBA xkW0Cc snctkc">18</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">9</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">7</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">56</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">35</td>
+          <td class="e9fBA xkW0Cc snctkc">21</td>
+          <td class="e9fBA xkW0Cc snctkc">63</td>
+          <td class="gwqH4e e9fBA xkW0Cc snctkc kRLtzc" role="cell" tabindex="0" jsaction="ipUFbd">
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Seri</div>
+            <div class="YCyuEf">Seri</div>
+            <div class="YCyuEf">Menang</div>
+            <div jsname="U4QKYc" class="t0t45c II8W2d" jscontroller="imurKb" data-as="5" data-ca="" data-dir="ltr"
+              data-position-left="6" data-tooltip-width="90" jsaction="kHBd4e:ZYIfFd">
+              <div jsname="haAclf" class="qRlaod" style="top:9px;left:-49px"><span jsname="fmcmS" class="Y86vEf zHcLxe"
+                  style="background-color:#4885ed;bottom:0;width:90px" aria-hidden="true">Pertandingan terbaru</span>
+                <div jsname="hFsbo" class="npJGSb" style="border-top-color:#4885ed;top:0;left:50px"></div>
+              </div>
+              <div class="mzZLbb" aria-hidden="true">
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA w2Mymf" aria-hidden="true"></td>
+        </tr>
+        <tr jscontroller="cvgK0e" aria-label="Borneo FC" class="imso-loa imso-hov" data-league-mid=""
+          data-should-expand-to-team-fullpage="true" data-sport="2" data-team-fullpage-color-for-transition="#212121"
+          data-team-fullpage-title-for-transition="" data-team-mid="/m/0100kf5d" tabindex="0"
+          jsaction="rcuQ6b:npT2md;hOPlV">
+          <td class="e9fBA nwxKge snctkc CuWfJb" aria-hidden="true"></td>
+          <td class="fbf28d e9fBA wxNiFd B1pJhb AXYSPc">
+            <div class="Rqwdve RQCbNe" style="border-bottom-color:#fff">
+              <div class="Xne9qe"><span class="YCyuEf"></span></div>
+            </div>
+            <div class="gDo0uc tgaaSb snctkc">
+              <div class="iU5t0d">6</div>
+            </div>
+            <div class="tgaaSb snctkc" aria-hidden="true"><span class="iU5t0d b8Oacc fz3Rib"><img
+                  class="imso_btl__mh-logo" alt=""
+                  src="//ssl.gstatic.com/onebox/media/sports/logos/971nr7DeaQFsvjx3K-CIpA_48x48.png"
+                  style="width:24px;height:24px"></span></div>
+            <div class="tgaaSb snctkc" style="width:12px"></div>
+          </td>
+          <td class="tcwpB e9fBA fbf28d snctkc B1pJhb fI7lFd n1i1Xc">
+            <div class="e6E1Yd">
+              <div class="imso-hide-overflow GXDoWd C1gYkd" role="link"><span class="ellipsisize hsKSJe">Borneo
+                  FC</span></div>
+            </div>
+          </td>
+          <td class="e9fBA xkW0Cc snctkc">34</td>
+          <td class="e9fBA xkW0Cc snctkc">14</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">10</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">10</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">43</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">35</td>
+          <td class="e9fBA xkW0Cc snctkc">8</td>
+          <td class="e9fBA xkW0Cc snctkc">52</td>
+          <td class="gwqH4e e9fBA xkW0Cc snctkc kRLtzc" role="cell" tabindex="0" jsaction="ipUFbd">
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Seri</div>
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Menang</div>
+            <div jsname="U4QKYc" class="t0t45c II8W2d" jscontroller="imurKb" data-as="5" data-ca="" data-dir="ltr"
+              data-position-left="6" data-tooltip-width="90" jsaction="kHBd4e:ZYIfFd">
+              <div jsname="haAclf" class="qRlaod" style="top:9px;left:-49px"><span jsname="fmcmS" class="Y86vEf zHcLxe"
+                  style="background-color:#4885ed;bottom:0;width:90px" aria-hidden="true">Pertandingan terbaru</span>
+                <div jsname="hFsbo" class="npJGSb" style="border-top-color:#4885ed;top:0;left:50px"></div>
+              </div>
+              <div class="mzZLbb" aria-hidden="true">
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA w2Mymf" aria-hidden="true"></td>
+        </tr>
+        <tr jscontroller="cvgK0e" aria-label="PSIS" class="imso-loa imso-hov" data-league-mid=""
+          data-should-expand-to-team-fullpage="true" data-sport="2" data-team-fullpage-color-for-transition="#212121"
+          data-team-fullpage-title-for-transition="" data-team-mid="/m/0dbvk4" tabindex="0"
+          jsaction="rcuQ6b:npT2md;hOPlV">
+          <td class="e9fBA nwxKge snctkc CuWfJb" aria-hidden="true"></td>
+          <td class="fbf28d e9fBA wxNiFd B1pJhb AXYSPc">
+            <div class="Rqwdve RQCbNe" style="border-bottom-color:#fff">
+              <div class="Xne9qe"><span class="YCyuEf"></span></div>
+            </div>
+            <div class="gDo0uc tgaaSb snctkc">
+              <div class="iU5t0d">7</div>
+            </div>
+            <div class="tgaaSb snctkc" aria-hidden="true"><span class="iU5t0d b8Oacc fz3Rib"><img
+                  class="imso_btl__mh-logo" alt=""
+                  src="//ssl.gstatic.com/onebox/media/sports/logos/4WCvjYPKO3bItyA2lr35sQ_48x48.png"
+                  style="width:24px;height:24px"></span></div>
+            <div class="tgaaSb snctkc" style="width:12px"></div>
+          </td>
+          <td class="tcwpB e9fBA fbf28d snctkc B1pJhb fI7lFd n1i1Xc">
+            <div class="e6E1Yd">
+              <div class="imso-hide-overflow GXDoWd C1gYkd" role="link"><span class="ellipsisize hsKSJe">PSIS</span>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA xkW0Cc snctkc">34</td>
+          <td class="e9fBA xkW0Cc snctkc">11</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">13</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">10</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">35</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">34</td>
+          <td class="e9fBA xkW0Cc snctkc">1</td>
+          <td class="e9fBA xkW0Cc snctkc">46</td>
+          <td class="gwqH4e e9fBA xkW0Cc snctkc kRLtzc" role="cell" tabindex="0" jsaction="ipUFbd">
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Seri</div>
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Seri</div>
+            <div jsname="U4QKYc" class="t0t45c II8W2d" jscontroller="imurKb" data-as="5" data-ca="" data-dir="ltr"
+              data-position-left="6" data-tooltip-width="90" jsaction="kHBd4e:ZYIfFd">
+              <div jsname="haAclf" class="qRlaod" style="top:9px;left:-49px"><span jsname="fmcmS" class="Y86vEf zHcLxe"
+                  style="background-color:#4885ed;bottom:0;width:90px" aria-hidden="true">Pertandingan terbaru</span>
+                <div jsname="hFsbo" class="npJGSb" style="border-top-color:#4885ed;top:0;left:50px"></div>
+              </div>
+              <div class="mzZLbb" aria-hidden="true">
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA w2Mymf" aria-hidden="true"></td>
+        </tr>
+        <tr jscontroller="cvgK0e" aria-label="Persija Jakarta" class="imso-loa imso-hov" data-league-mid=""
+          data-should-expand-to-team-fullpage="true" data-sport="2" data-team-fullpage-color-for-transition="#fd3e00"
+          data-team-fullpage-title-for-transition="" data-team-mid="/m/0681ss" tabindex="0"
+          jsaction="rcuQ6b:npT2md;hOPlV">
+          <td class="e9fBA nwxKge snctkc CuWfJb" aria-hidden="true"></td>
+          <td class="fbf28d e9fBA wxNiFd B1pJhb AXYSPc">
+            <div class="Rqwdve RQCbNe" style="border-bottom-color:#fff">
+              <div class="Xne9qe"><span class="YCyuEf"></span></div>
+            </div>
+            <div class="gDo0uc tgaaSb snctkc">
+              <div class="iU5t0d">8</div>
+            </div>
+            <div class="tgaaSb snctkc" aria-hidden="true"><span class="iU5t0d b8Oacc fz3Rib"><img
+                  class="imso_btl__mh-logo" alt=""
+                  src="//ssl.gstatic.com/onebox/media/sports/logos/zG89oHU9U0HCCF-zutao2Q_48x48.png"
+                  style="width:24px;height:24px"></span></div>
+            <div class="tgaaSb snctkc" style="width:12px"></div>
+          </td>
+          <td class="tcwpB e9fBA fbf28d snctkc B1pJhb fI7lFd n1i1Xc">
+            <div class="e6E1Yd">
+              <div class="imso-hide-overflow GXDoWd C1gYkd" role="link"><span class="ellipsisize hsKSJe">Persija
+                  Jakarta</span></div>
+            </div>
+          </td>
+          <td class="e9fBA xkW0Cc snctkc">34</td>
+          <td class="e9fBA xkW0Cc snctkc">11</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">12</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">11</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">43</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">40</td>
+          <td class="e9fBA xkW0Cc snctkc">3</td>
+          <td class="e9fBA xkW0Cc snctkc">45</td>
+          <td class="gwqH4e e9fBA xkW0Cc snctkc kRLtzc" role="cell" tabindex="0" jsaction="ipUFbd">
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Seri</div>
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Menang</div>
+            <div jsname="U4QKYc" class="t0t45c II8W2d" jscontroller="imurKb" data-as="5" data-ca="" data-dir="ltr"
+              data-position-left="6" data-tooltip-width="90" jsaction="kHBd4e:ZYIfFd">
+              <div jsname="haAclf" class="qRlaod" style="top:9px;left:-49px"><span jsname="fmcmS" class="Y86vEf zHcLxe"
+                  style="background-color:#4885ed;bottom:0;width:90px" aria-hidden="true">Pertandingan terbaru</span>
+                <div jsname="hFsbo" class="npJGSb" style="border-top-color:#4885ed;top:0;left:50px"></div>
+              </div>
+              <div class="mzZLbb" aria-hidden="true">
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA w2Mymf" aria-hidden="true"></td>
+        </tr>
+        <tr jscontroller="cvgK0e" aria-label="Madura United" class="imso-loa imso-hov" data-league-mid=""
+          data-should-expand-to-team-fullpage="true" data-sport="2" data-team-fullpage-color-for-transition="#030d38"
+          data-team-fullpage-title-for-transition="" data-team-mid="/m/0h28z_" tabindex="0"
+          jsaction="rcuQ6b:npT2md;hOPlV">
+          <td class="e9fBA nwxKge snctkc CuWfJb" aria-hidden="true"></td>
+          <td class="fbf28d e9fBA wxNiFd B1pJhb AXYSPc">
+            <div class="Rqwdve RQCbNe" style="border-bottom-color:#fff">
+              <div class="Xne9qe"><span class="YCyuEf"></span></div>
+            </div>
+            <div class="gDo0uc tgaaSb snctkc">
+              <div class="iU5t0d">9</div>
+            </div>
+            <div class="tgaaSb snctkc" aria-hidden="true"><span class="iU5t0d b8Oacc fz3Rib"><img
+                  class="imso_btl__mh-logo" alt=""
+                  src="//ssl.gstatic.com/onebox/media/sports/logos/CNX6-D-GQreUaKK_8zdpnQ_48x48.png"
+                  style="width:24px;height:24px"></span></div>
+            <div class="tgaaSb snctkc" style="width:12px"></div>
+          </td>
+          <td class="tcwpB e9fBA fbf28d snctkc B1pJhb fI7lFd n1i1Xc">
+            <div class="e6E1Yd">
+              <div class="imso-hide-overflow GXDoWd C1gYkd" role="link"><span class="ellipsisize hsKSJe">Madura
+                  United</span></div>
+            </div>
+          </td>
+          <td class="e9fBA xkW0Cc snctkc">34</td>
+          <td class="e9fBA xkW0Cc snctkc">10</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">11</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">13</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">45</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">43</td>
+          <td class="e9fBA xkW0Cc snctkc">2</td>
+          <td class="e9fBA xkW0Cc snctkc">41</td>
+          <td class="gwqH4e e9fBA xkW0Cc snctkc kRLtzc" role="cell" tabindex="0" jsaction="ipUFbd">
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Kalah</div>
+            <div jsname="U4QKYc" class="t0t45c II8W2d" jscontroller="imurKb" data-as="5" data-ca="" data-dir="ltr"
+              data-position-left="6" data-tooltip-width="90" jsaction="kHBd4e:ZYIfFd">
+              <div jsname="haAclf" class="qRlaod" style="top:9px;left:-49px"><span jsname="fmcmS" class="Y86vEf zHcLxe"
+                  style="background-color:#4885ed;bottom:0;width:90px" aria-hidden="true">Pertandingan terbaru</span>
+                <div jsname="hFsbo" class="npJGSb" style="border-top-color:#4885ed;top:0;left:50px"></div>
+              </div>
+              <div class="mzZLbb" aria-hidden="true">
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA w2Mymf" aria-hidden="true"></td>
+        </tr>
+        <tr jscontroller="cvgK0e" aria-label="TR-Kabo" class="imso-loa imso-hov" data-league-mid=""
+          data-should-expand-to-team-fullpage="true" data-sport="2" data-team-fullpage-color-for-transition="#212121"
+          data-team-fullpage-title-for-transition="" data-team-mid="/g/11cm88z5y3" tabindex="0"
+          jsaction="rcuQ6b:npT2md;hOPlV">
+          <td class="e9fBA nwxKge snctkc CuWfJb" aria-hidden="true"></td>
+          <td class="fbf28d e9fBA wxNiFd B1pJhb AXYSPc">
+            <div class="Rqwdve RQCbNe" style="border-bottom-color:#fff">
+              <div class="Xne9qe"><span class="YCyuEf"></span></div>
+            </div>
+            <div class="gDo0uc tgaaSb snctkc">
+              <div class="iU5t0d">10</div>
+            </div>
+            <div class="tgaaSb snctkc" aria-hidden="true"><span class="iU5t0d b8Oacc fz3Rib"><img
+                  class="imso_btl__mh-logo" alt=""
+                  src="//ssl.gstatic.com/onebox/media/sports/logos/7WpxCSscGmAEQeRF2zVKCw_48x48.png"
+                  style="width:24px;height:24px"></span></div>
+            <div class="tgaaSb snctkc" style="width:12px"></div>
+          </td>
+          <td class="tcwpB e9fBA fbf28d snctkc B1pJhb fI7lFd n1i1Xc">
+            <div class="e6E1Yd">
+              <div class="imso-hide-overflow GXDoWd C1gYkd" role="link"><span class="ellipsisize hsKSJe">TR-Kabo</span>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA xkW0Cc snctkc">34</td>
+          <td class="e9fBA xkW0Cc snctkc">10</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">10</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">14</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">49</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">48</td>
+          <td class="e9fBA xkW0Cc snctkc">1</td>
+          <td class="e9fBA xkW0Cc snctkc">40</td>
+          <td class="gwqH4e e9fBA xkW0Cc snctkc kRLtzc" role="cell" tabindex="0" jsaction="ipUFbd">
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Menang</div>
+            <div jsname="U4QKYc" class="t0t45c II8W2d" jscontroller="imurKb" data-as="5" data-ca="" data-dir="ltr"
+              data-position-left="6" data-tooltip-width="90" jsaction="kHBd4e:ZYIfFd">
+              <div jsname="haAclf" class="qRlaod" style="top:9px;left:-49px"><span jsname="fmcmS" class="Y86vEf zHcLxe"
+                  style="background-color:#4885ed;bottom:0;width:90px" aria-hidden="true">Pertandingan terbaru</span>
+                <div jsname="hFsbo" class="npJGSb" style="border-top-color:#4885ed;top:0;left:50px"></div>
+              </div>
+              <div class="mzZLbb" aria-hidden="true">
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA w2Mymf" aria-hidden="true"></td>
+        </tr>
+        <tr jscontroller="cvgK0e" aria-label="Persik" class="imso-loa imso-hov" data-league-mid=""
+          data-should-expand-to-team-fullpage="true" data-sport="2" data-team-fullpage-color-for-transition="#613991"
+          data-team-fullpage-title-for-transition="" data-team-mid="/m/0g7gwc" tabindex="0"
+          jsaction="rcuQ6b:npT2md;hOPlV">
+          <td class="e9fBA nwxKge snctkc CuWfJb" aria-hidden="true"></td>
+          <td class="fbf28d e9fBA wxNiFd B1pJhb AXYSPc">
+            <div class="Rqwdve RQCbNe" style="border-bottom-color:#fff">
+              <div class="Xne9qe"><span class="YCyuEf"></span></div>
+            </div>
+            <div class="gDo0uc tgaaSb snctkc">
+              <div class="iU5t0d">11</div>
+            </div>
+            <div class="tgaaSb snctkc" aria-hidden="true"><span class="iU5t0d b8Oacc fz3Rib"><img
+                  class="imso_btl__mh-logo" alt=""
+                  src="//ssl.gstatic.com/onebox/media/sports/logos/jz2h8KmLrZz9pgMq36GPtw_48x48.png"
+                  style="width:24px;height:24px"></span></div>
+            <div class="tgaaSb snctkc" style="width:12px"></div>
+          </td>
+          <td class="tcwpB e9fBA fbf28d snctkc B1pJhb fI7lFd n1i1Xc">
+            <div class="e6E1Yd">
+              <div class="imso-hide-overflow GXDoWd C1gYkd" role="link"><span class="ellipsisize hsKSJe">Persik</span>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA xkW0Cc snctkc">34</td>
+          <td class="e9fBA xkW0Cc snctkc">9</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">12</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">13</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">33</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">39</td>
+          <td class="e9fBA xkW0Cc snctkc">-6</td>
+          <td class="e9fBA xkW0Cc snctkc">39</td>
+          <td class="gwqH4e e9fBA xkW0Cc snctkc kRLtzc" role="cell" tabindex="0" jsaction="ipUFbd">
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Seri</div>
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Seri</div>
+            <div class="YCyuEf">Kalah</div>
+            <div jsname="U4QKYc" class="t0t45c II8W2d" jscontroller="imurKb" data-as="5" data-ca="" data-dir="ltr"
+              data-position-left="6" data-tooltip-width="90" jsaction="kHBd4e:ZYIfFd">
+              <div jsname="haAclf" class="qRlaod" style="top:9px;left:-49px"><span jsname="fmcmS" class="Y86vEf zHcLxe"
+                  style="background-color:#4885ed;bottom:0;width:90px" aria-hidden="true">Pertandingan terbaru</span>
+                <div jsname="hFsbo" class="npJGSb" style="border-top-color:#4885ed;top:0;left:50px"></div>
+              </div>
+              <div class="mzZLbb" aria-hidden="true">
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA w2Mymf" aria-hidden="true"></td>
+        </tr>
+        <tr jscontroller="cvgK0e" aria-label="Persita" class="imso-loa imso-hov" data-league-mid=""
+          data-should-expand-to-team-fullpage="true" data-sport="2" data-team-fullpage-color-for-transition="#5b035b"
+          data-team-fullpage-title-for-transition="" data-team-mid="/m/0ghck3" tabindex="0"
+          jsaction="rcuQ6b:npT2md;hOPlV">
+          <td class="e9fBA nwxKge snctkc CuWfJb" aria-hidden="true"></td>
+          <td class="fbf28d e9fBA wxNiFd B1pJhb AXYSPc">
+            <div class="Rqwdve RQCbNe" style="border-bottom-color:#fff">
+              <div class="Xne9qe"><span class="YCyuEf"></span></div>
+            </div>
+            <div class="gDo0uc tgaaSb snctkc">
+              <div class="iU5t0d">12</div>
+            </div>
+            <div class="tgaaSb snctkc" aria-hidden="true"><span class="iU5t0d b8Oacc fz3Rib"><img
+                  class="imso_btl__mh-logo" alt=""
+                  src="//ssl.gstatic.com/onebox/media/sports/logos/KS6m2kDLyw-alBwraSvPZA_48x48.png"
+                  style="width:24px;height:24px"></span></div>
+            <div class="tgaaSb snctkc" style="width:12px"></div>
+          </td>
+          <td class="tcwpB e9fBA fbf28d snctkc B1pJhb fI7lFd n1i1Xc">
+            <div class="e6E1Yd">
+              <div class="imso-hide-overflow GXDoWd C1gYkd" role="link"><span class="ellipsisize hsKSJe">Persita</span>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA xkW0Cc snctkc">34</td>
+          <td class="e9fBA xkW0Cc snctkc">9</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">12</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">13</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">39</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">49</td>
+          <td class="e9fBA xkW0Cc snctkc">-10</td>
+          <td class="e9fBA xkW0Cc snctkc">39</td>
+          <td class="gwqH4e e9fBA xkW0Cc snctkc kRLtzc" role="cell" tabindex="0" jsaction="ipUFbd">
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Seri</div>
+            <div class="YCyuEf">Seri</div>
+            <div class="YCyuEf">Seri</div>
+            <div jsname="U4QKYc" class="t0t45c II8W2d" jscontroller="imurKb" data-as="5" data-ca="" data-dir="ltr"
+              data-position-left="6" data-tooltip-width="90" jsaction="kHBd4e:ZYIfFd">
+              <div jsname="haAclf" class="qRlaod" style="top:9px;left:-49px"><span jsname="fmcmS" class="Y86vEf zHcLxe"
+                  style="background-color:#4885ed;bottom:0;width:90px" aria-hidden="true">Pertandingan terbaru</span>
+                <div jsname="hFsbo" class="npJGSb" style="border-top-color:#4885ed;top:0;left:50px"></div>
+              </div>
+              <div class="mzZLbb" aria-hidden="true">
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA w2Mymf" aria-hidden="true"></td>
+        </tr>
+        <tr jscontroller="cvgK0e" aria-label="PSS" class="imso-loa imso-hov" data-league-mid=""
+          data-should-expand-to-team-fullpage="true" data-sport="2" data-team-fullpage-color-for-transition="#212121"
+          data-team-fullpage-title-for-transition="" data-team-mid="/m/0ghcpl" tabindex="0"
+          jsaction="rcuQ6b:npT2md;hOPlV">
+          <td class="e9fBA nwxKge snctkc CuWfJb" aria-hidden="true"></td>
+          <td class="fbf28d e9fBA wxNiFd B1pJhb AXYSPc">
+            <div class="Rqwdve RQCbNe" style="border-bottom-color:#fff">
+              <div class="Xne9qe"><span class="YCyuEf"></span></div>
+            </div>
+            <div class="gDo0uc tgaaSb snctkc">
+              <div class="iU5t0d">13</div>
+            </div>
+            <div class="tgaaSb snctkc" aria-hidden="true"><span class="iU5t0d b8Oacc fz3Rib"><img
+                  class="imso_btl__mh-logo" alt=""
+                  src="//ssl.gstatic.com/onebox/media/sports/logos/O9oSqdIsDxMrh1sQAeJAMQ_48x48.png"
+                  style="width:24px;height:24px"></span></div>
+            <div class="tgaaSb snctkc" style="width:12px"></div>
+          </td>
+          <td class="tcwpB e9fBA fbf28d snctkc B1pJhb fI7lFd n1i1Xc">
+            <div class="e6E1Yd">
+              <div class="imso-hide-overflow GXDoWd C1gYkd" role="link"><span class="ellipsisize hsKSJe">PSS</span>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA xkW0Cc snctkc">34</td>
+          <td class="e9fBA xkW0Cc snctkc">10</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">9</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">15</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">40</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">48</td>
+          <td class="e9fBA xkW0Cc snctkc">-8</td>
+          <td class="e9fBA xkW0Cc snctkc">39</td>
+          <td class="gwqH4e e9fBA xkW0Cc snctkc kRLtzc" role="cell" tabindex="0" jsaction="ipUFbd">
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Seri</div>
+            <div jsname="U4QKYc" class="t0t45c II8W2d" jscontroller="imurKb" data-as="5" data-ca="" data-dir="ltr"
+              data-position-left="6" data-tooltip-width="90" jsaction="kHBd4e:ZYIfFd">
+              <div jsname="haAclf" class="qRlaod" style="top:9px;left:-49px"><span jsname="fmcmS" class="Y86vEf zHcLxe"
+                  style="background-color:#4885ed;bottom:0;width:90px" aria-hidden="true">Pertandingan terbaru</span>
+                <div jsname="hFsbo" class="npJGSb" style="border-top-color:#4885ed;top:0;left:50px"></div>
+              </div>
+              <div class="mzZLbb" aria-hidden="true">
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA w2Mymf" aria-hidden="true"></td>
+        </tr>
+        <tr jscontroller="cvgK0e" aria-label="PSM Makassar" class="imso-loa imso-hov" data-league-mid=""
+          data-should-expand-to-team-fullpage="true" data-sport="2" data-team-fullpage-color-for-transition="#dc0000"
+          data-team-fullpage-title-for-transition="" data-team-mid="/m/077v3n" tabindex="0"
+          jsaction="rcuQ6b:npT2md;hOPlV">
+          <td class="e9fBA nwxKge snctkc CuWfJb" aria-hidden="true"></td>
+          <td class="fbf28d e9fBA wxNiFd B1pJhb AXYSPc">
+            <div class="Rqwdve RQCbNe" style="border-bottom-color:#fff">
+              <div class="Xne9qe"><span class="YCyuEf"></span></div>
+            </div>
+            <div class="gDo0uc tgaaSb snctkc">
+              <div class="iU5t0d">14</div>
+            </div>
+            <div class="tgaaSb snctkc" aria-hidden="true"><span class="iU5t0d b8Oacc fz3Rib"><img
+                  class="imso_btl__mh-logo" alt=""
+                  src="//ssl.gstatic.com/onebox/media/sports/logos/1-PbIEfjB_RIrtqlxGEK7w_48x48.png"
+                  style="width:24px;height:24px"></span></div>
+            <div class="tgaaSb snctkc" style="width:12px"></div>
+          </td>
+          <td class="tcwpB e9fBA fbf28d snctkc B1pJhb fI7lFd n1i1Xc">
+            <div class="e6E1Yd">
+              <div class="imso-hide-overflow GXDoWd C1gYkd" role="link"><span class="ellipsisize hsKSJe">PSM
+                  Makassar</span></div>
+            </div>
+          </td>
+          <td class="e9fBA xkW0Cc snctkc">34</td>
+          <td class="e9fBA xkW0Cc snctkc">8</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">14</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">12</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">31</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">41</td>
+          <td class="e9fBA xkW0Cc snctkc">-10</td>
+          <td class="e9fBA xkW0Cc snctkc">38</td>
+          <td class="gwqH4e e9fBA xkW0Cc snctkc kRLtzc" role="cell" tabindex="0" jsaction="ipUFbd">
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Seri</div>
+            <div class="YCyuEf">Seri</div>
+            <div jsname="U4QKYc" class="t0t45c II8W2d" jscontroller="imurKb" data-as="5" data-ca="" data-dir="ltr"
+              data-position-left="6" data-tooltip-width="90" jsaction="kHBd4e:ZYIfFd">
+              <div jsname="haAclf" class="qRlaod" style="top:9px;left:-49px"><span jsname="fmcmS" class="Y86vEf zHcLxe"
+                  style="background-color:#4885ed;bottom:0;width:90px" aria-hidden="true">Pertandingan terbaru</span>
+                <div jsname="hFsbo" class="npJGSb" style="border-top-color:#4885ed;top:0;left:50px"></div>
+              </div>
+              <div class="mzZLbb" aria-hidden="true">
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA w2Mymf" aria-hidden="true"></td>
+        </tr>
+        <tr jscontroller="cvgK0e" aria-label="Barito Putera" class="imso-loa imso-hov" data-league-mid=""
+          data-should-expand-to-team-fullpage="true" data-sport="2" data-team-fullpage-color-for-transition="#0b73ab"
+          data-team-fullpage-title-for-transition="" data-team-mid="/m/0gg88fj" tabindex="0"
+          jsaction="rcuQ6b:npT2md;hOPlV">
+          <td class="e9fBA nwxKge snctkc CuWfJb" aria-hidden="true"></td>
+          <td class="fbf28d e9fBA wxNiFd B1pJhb AXYSPc">
+            <div class="Rqwdve RQCbNe" style="border-bottom-color:#fff">
+              <div class="Xne9qe"><span class="YCyuEf"></span></div>
+            </div>
+            <div class="gDo0uc tgaaSb snctkc">
+              <div class="iU5t0d">15</div>
+            </div>
+            <div class="tgaaSb snctkc" aria-hidden="true"><span class="iU5t0d b8Oacc fz3Rib"><img
+                  class="imso_btl__mh-logo" alt=""
+                  src="//ssl.gstatic.com/onebox/media/sports/logos/a7orxZZuY_jCr3-aniREGA_48x48.png"
+                  style="width:24px;height:24px"></span></div>
+            <div class="tgaaSb snctkc" style="width:12px"></div>
+          </td>
+          <td class="tcwpB e9fBA fbf28d snctkc B1pJhb fI7lFd n1i1Xc">
+            <div class="e6E1Yd">
+              <div class="imso-hide-overflow GXDoWd C1gYkd" role="link"><span class="ellipsisize hsKSJe">Barito
+                  Putera</span></div>
+            </div>
+          </td>
+          <td class="e9fBA xkW0Cc snctkc">34</td>
+          <td class="e9fBA xkW0Cc snctkc">9</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">9</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">16</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">41</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">49</td>
+          <td class="e9fBA xkW0Cc snctkc">-8</td>
+          <td class="e9fBA xkW0Cc snctkc">36</td>
+          <td class="gwqH4e e9fBA xkW0Cc snctkc kRLtzc" role="cell" tabindex="0" jsaction="ipUFbd">
+            <div class="YCyuEf">Seri</div>
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Seri</div>
+            <div class="YCyuEf">Seri</div>
+            <div jsname="U4QKYc" class="t0t45c II8W2d" jscontroller="imurKb" data-as="5" data-ca="" data-dir="ltr"
+              data-position-left="6" data-tooltip-width="90" jsaction="kHBd4e:ZYIfFd">
+              <div jsname="haAclf" class="qRlaod" style="top:9px;left:-49px"><span jsname="fmcmS" class="Y86vEf zHcLxe"
+                  style="background-color:#4885ed;bottom:0;width:90px" aria-hidden="true">Pertandingan terbaru</span>
+                <div jsname="hFsbo" class="npJGSb" style="border-top-color:#4885ed;top:0;left:50px"></div>
+              </div>
+              <div class="mzZLbb" aria-hidden="true">
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA w2Mymf" aria-hidden="true"></td>
+        </tr>
+        <tr jscontroller="cvgK0e" aria-label="Persipura Jayapura" class="imso-loa imso-hov" data-league-mid=""
+          data-should-expand-to-team-fullpage="true" data-sport="2" data-team-fullpage-color-for-transition="#fc0000"
+          data-team-fullpage-title-for-transition="" data-team-mid="/m/0bwv19" tabindex="0"
+          jsaction="rcuQ6b:npT2md;hOPlV">
+          <td class="e9fBA nwxKge snctkc CuWfJb" aria-hidden="true"></td>
+          <td class="fbf28d e9fBA wxNiFd B1pJhb AXYSPc">
+            <div class="Rqwdve RQCbNe" style="border-bottom-color:#fff">
+              <div class="Xne9qe" style="background-color:#EA4335"><span class="YCyuEf">Degradasi</span></div>
+            </div>
+            <div class="gDo0uc tgaaSb snctkc">
+              <div class="iU5t0d">16</div>
+            </div>
+            <div class="tgaaSb snctkc" aria-hidden="true"><span class="iU5t0d b8Oacc fz3Rib"><img
+                  class="imso_btl__mh-logo" alt=""
+                  src="//ssl.gstatic.com/onebox/media/sports/logos/ucAijmbQxvC9rWtjRw1pyQ_48x48.png"
+                  style="width:24px;height:24px"></span></div>
+            <div class="tgaaSb snctkc" style="width:12px"></div>
+          </td>
+          <td class="tcwpB e9fBA fbf28d snctkc B1pJhb fI7lFd n1i1Xc">
+            <div class="e6E1Yd">
+              <div class="imso-hide-overflow GXDoWd C1gYkd" role="link"><span class="ellipsisize hsKSJe">Persipura
+                  Jayapura</span></div>
+            </div>
+          </td>
+          <td class="e9fBA xkW0Cc snctkc">34</td>
+          <td class="e9fBA xkW0Cc snctkc">10</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">9</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">15</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">36</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">47</td>
+          <td class="e9fBA xkW0Cc snctkc">-11</td>
+          <td class="e9fBA xkW0Cc snctkc">36</td>
+          <td class="gwqH4e e9fBA xkW0Cc snctkc kRLtzc" role="cell" tabindex="0" jsaction="ipUFbd">
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Menang</div>
+            <div class="YCyuEf">Seri</div>
+            <div jsname="U4QKYc" class="t0t45c II8W2d" jscontroller="imurKb" data-as="5" data-ca="" data-dir="ltr"
+              data-position-left="6" data-tooltip-width="90" jsaction="kHBd4e:ZYIfFd">
+              <div jsname="haAclf" class="qRlaod" style="top:9px;left:-49px"><span jsname="fmcmS" class="Y86vEf zHcLxe"
+                  style="background-color:#4885ed;bottom:0;width:90px" aria-hidden="true">Pertandingan terbaru</span>
+                <div jsname="hFsbo" class="npJGSb" style="border-top-color:#4885ed;top:0;left:50px"></div>
+              </div>
+              <div class="mzZLbb" aria-hidden="true">
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-w"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2luIj4KICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbCIgZmlsbD0iIzNBQTc1NyIgY3g9IjgiIGN5PSI4IiByPSI4Ij48L2NpcmNsZT4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI2LjQgOS43NiA0LjMyIDcuNjggMy4yIDguOCA2LjQgMTIgMTIuOCA1LjYgMTEuNjggNC40OCI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA w2Mymf" aria-hidden="true"></td>
+        </tr>
+        <tr jscontroller="cvgK0e" aria-label="Persela Lamongan" class="imso-loa imso-hov" data-league-mid=""
+          data-should-expand-to-team-fullpage="true" data-sport="2" data-team-fullpage-color-for-transition="#8ecfe8"
+          data-team-fullpage-title-for-transition="" data-team-mid="/m/0ghcfp" tabindex="0"
+          jsaction="rcuQ6b:npT2md;hOPlV">
+          <td class="e9fBA nwxKge snctkc CuWfJb" aria-hidden="true"></td>
+          <td class="fbf28d e9fBA wxNiFd B1pJhb AXYSPc">
+            <div class="Rqwdve RQCbNe" style="border-bottom-color:#fff">
+              <div class="Xne9qe" style="background-color:#EA4335"><span class="YCyuEf">Degradasi</span></div>
+            </div>
+            <div class="gDo0uc tgaaSb snctkc">
+              <div class="iU5t0d">17</div>
+            </div>
+            <div class="tgaaSb snctkc" aria-hidden="true"><span class="iU5t0d b8Oacc fz3Rib"><img
+                  class="imso_btl__mh-logo" alt=""
+                  src="//ssl.gstatic.com/onebox/media/sports/logos/BGEck3TFEr5qQHmE2KuQOA_48x48.png"
+                  style="width:24px;height:24px"></span></div>
+            <div class="tgaaSb snctkc" style="width:12px"></div>
+          </td>
+          <td class="tcwpB e9fBA fbf28d snctkc B1pJhb fI7lFd n1i1Xc">
+            <div class="e6E1Yd">
+              <div class="imso-hide-overflow GXDoWd C1gYkd" role="link"><span class="ellipsisize hsKSJe">Persela
+                  Lamongan</span></div>
+            </div>
+          </td>
+          <td class="e9fBA xkW0Cc snctkc">34</td>
+          <td class="e9fBA xkW0Cc snctkc">3</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">12</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">19</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">32</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc">61</td>
+          <td class="e9fBA xkW0Cc snctkc">-29</td>
+          <td class="e9fBA xkW0Cc snctkc">21</td>
+          <td class="gwqH4e e9fBA xkW0Cc snctkc kRLtzc" role="cell" tabindex="0" jsaction="ipUFbd">
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Seri</div>
+            <div class="YCyuEf">Kalah</div>
+            <div jsname="U4QKYc" class="t0t45c II8W2d" jscontroller="imurKb" data-as="5" data-ca="" data-dir="ltr"
+              data-position-left="6" data-tooltip-width="90" jsaction="kHBd4e:ZYIfFd">
+              <div jsname="haAclf" class="qRlaod" style="top:9px;left:-49px"><span jsname="fmcmS" class="Y86vEf zHcLxe"
+                  style="background-color:#4885ed;bottom:0;width:90px" aria-hidden="true">Pertandingan terbaru</span>
+                <div jsname="hFsbo" class="npJGSb" style="border-top-color:#4885ed;top:0;left:50px"></div>
+              </div>
+              <div class="mzZLbb" aria-hidden="true">
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-t"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRHJhdyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiM5QUEwQTYiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjUgNyAxMSA3IDExIDkgNSA5Ij48L3BvbHlnb24+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA w2Mymf" aria-hidden="true"></td>
+        </tr>
+        <tr jscontroller="cvgK0e" aria-label="Persiraja" class="imso-loa imso-hov" data-league-mid=""
+          data-should-expand-to-team-fullpage="true" data-sport="2" data-team-fullpage-color-for-transition="#212121"
+          data-team-fullpage-title-for-transition="" data-team-mid="/m/02732k9" tabindex="0"
+          jsaction="rcuQ6b:npT2md;hOPlV">
+          <td class="e9fBA nwxKge snctkc CuWfJb bWoKCf" aria-hidden="true"></td>
+          <td class="fbf28d e9fBA wxNiFd B1pJhb AXYSPc">
+            <div class="Rqwdve RQCbNe" style="border-bottom-color:#fff">
+              <div class="Xne9qe" style="background-color:#EA4335"><span class="YCyuEf">Degradasi</span></div>
+            </div>
+            <div class="gDo0uc tgaaSb">
+              <div class="iU5t0d">18</div>
+            </div>
+            <div class="tgaaSb" aria-hidden="true"><span class="iU5t0d b8Oacc fz3Rib">
+                <div class="imso_btl__mh-no-logo" style="width:22px;height:22px;background-color:#B2B2B2"><img
+                    class="imso_btl__tm-lo-luf" src="//www.gstatic.com/onebox/sports/logos/inverse-crest.svg" alt=""
+                    style="width:24px;height:24px"></div>
+              </span></div>
+            <div class="tgaaSb" style="width:12px"></div>
+          </td>
+          <td class="tcwpB e9fBA fbf28d snctkc B1pJhb fI7lFd n1i1Xc bWoKCf">
+            <div class="e6E1Yd">
+              <div class="imso-hide-overflow GXDoWd C1gYkd" role="link"><span
+                  class="ellipsisize hsKSJe">Persiraja</span></div>
+            </div>
+          </td>
+          <td class="e9fBA xkW0Cc snctkc bWoKCf">34</td>
+          <td class="e9fBA xkW0Cc snctkc bWoKCf">2</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc bWoKCf">7</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc bWoKCf">25</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc bWoKCf">18</td>
+          <td class="e9fBA xkW0Cc snctkc kRLtzc bWoKCf">69</td>
+          <td class="e9fBA xkW0Cc snctkc bWoKCf">-51</td>
+          <td class="e9fBA xkW0Cc snctkc bWoKCf">13</td>
+          <td class="gwqH4e e9fBA xkW0Cc snctkc kRLtzc bWoKCf" role="cell" tabindex="0" jsaction="ipUFbd">
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Kalah</div>
+            <div class="YCyuEf">Kalah</div>
+            <div jsname="U4QKYc" class="t0t45c II8W2d" jscontroller="imurKb" data-as="5" data-ca="" data-dir="ltr"
+              data-position-left="6" data-tooltip-width="90" jsaction="kHBd4e:ZYIfFd">
+              <div jsname="haAclf" class="qRlaod" style="top:9px;left:-49px"><span jsname="fmcmS" class="Y86vEf zHcLxe"
+                  style="background-color:#4885ed;bottom:0;width:90px" aria-hidden="true">Pertandingan terbaru</span>
+                <div jsname="hFsbo" class="npJGSb" style="border-top-color:#4885ed;top:0;left:50px"></div>
+              </div>
+              <div class="mzZLbb" aria-hidden="true">
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+                <div class="XqaACe BPu3kf" aria-labelledby="l5l-l"> <img
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTG9zcyI+CiAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwiIGZpbGw9IiNFQTQzMzUiIGN4PSI4IiBjeT0iOCIgcj0iOCI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC04LjAwMDAwMCwgLTguMDAwMDAwKSAiIHBvaW50cz0iMTIgOC44IDguOCA4LjggOC44IDEyIDcuMiAxMiA3LjIgOC44IDQgOC44IDQgNy4yIDcuMiA3LjIgNy4yIDQgOC44IDQgOC44IDcuMiAxMiA3LjIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                    class="nB9CIe" alt=""> </div>
+              </div>
+            </div>
+          </td>
+          <td class="e9fBA w2Mymf" aria-hidden="true"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<router-outlet></router-outlet>
